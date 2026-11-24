@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eliora | Sites, SaaS e IA para empresas</title>
+<meta name="description" content="A Eliora cria sites, produtos SaaS, agentes de IA, consultoria em IA e software sob medida para empresas que querem evoluir. Technology with Purpose.">
+<meta name="theme-color" content="#070912">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eliora">
+<meta property="og:description" content="A Eliora cria sites, produtos SaaS, agentes de IA, consultoria em IA e software sob medida para empresas que querem evoluir. Technology with Purpose.">
+<!-- DEPLOY STEP: depois de publicar, adicione aqui og:url e og:image com os enderecos completos do seu dominio -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none'><rect width='40' height='40' rx='9' fill='%23070912'/><defs><linearGradient id='g' x1='4' y1='8' x2='36' y2='34' gradientUnits='userSpaceOnUse'><stop stop-color='%23FFE3A8'/><stop offset='1' stop-color='%23FF9F43'/></linearGradient></defs><path d='M5 27a15 15 0 0 1 30 0' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'/><path d='M12 27a8 8 0 0 1 16 0' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'/><circle cx='20' cy='27' r='2.8' fill='%23FFE3A8'/><path d='M5 34h30' stroke='url(%23g)' stroke-width='3' stroke-linecap='round' opacity='.5'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Inter:ital,wght@0,400;0,500;0,600;1,300&display=swap">
+<style>
+html,body{margin:0;padding:0}
+
+:root{--bg:#070912;--panel:#0E1220;--panel2:#141A2E;--line:#232A44;--txt:#F5F3EE;--mut:#A7AABB;--dim:#7C8199;--gold:#FFB547;--glow:#FFE3A8;--ember:#FF9F43}
+body{margin:0;background:#070912;color:#F5F3EE;font-family:'Inter',system-ui,sans-serif}
+a{color:inherit}
+html,body{scroll-behavior:smooth}
+[id]{scroll-margin-top:76px}
+details>summary{cursor:pointer;list-style:none}
+details>summary::-webkit-details-marker{display:none}
+details[open] .faq-plus{transform:rotate(45deg)}
+details[open] .faq-a{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
+
+/* ---------- keyframes ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes reveal{from{opacity:.25;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes orbA{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(70px,50px) scale(1.15)}}
+@keyframes orbB{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-80px,-40px) scale(1.2)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,181,71,.75)}100%{box-shadow:0 0 0 22px rgba(255,181,71,0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes shine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes flow{0%{transform:translateY(-100%)}100%{transform:translateY(300%)}}
+@keyframes core{0%,100%{opacity:.85;transform:scale(1)}50%{opacity:1;transform:scale(1.35)}}
+
+/* ---------- entrada ---------- */
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.2s}.d3{animation-delay:.34s}.d4{animation-delay:.5s}
+@supports (animation-timeline:view()){
+.reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 45%}
+}
+
+/* ---------- logo ---------- */
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;transition:transform .35s cubic-bezier(.2,.7,.2,1),filter .35s}
+.logo:hover{transform:scale(1.04);filter:drop-shadow(0 0 14px rgba(255,181,71,.55))}
+.logo-word{font-family:'Sora',sans-serif;font-weight:600;font-size:22px;letter-spacing:.34em;color:#F5F3EE;margin-right:-.34em;background:linear-gradient(110deg,#F5F3EE 0%,#F5F3EE 40%,#FFD27A 46%,#FFF6DC 50%,#FFB547 54%,#F5F3EE 60%,#F5F3EE 100%);background-size:250% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:logoSweep 10s ease-in-out infinite}
+.logo-word.alt{animation-delay:-5s}
+.lockup{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.logo-tag{font-style:italic;font-weight:300;font-size:10px;letter-spacing:.16em;line-height:1.2;color:#FFB547;white-space:nowrap}
+@keyframes logoSweep{0%,45%{background-position:100% 0;filter:drop-shadow(0 0 0 rgba(255,181,71,0))}72%{filter:drop-shadow(0 0 10px rgba(255,181,71,.55))}100%{background-position:0 0;filter:drop-shadow(0 0 0 rgba(255,181,71,0))}}
+.mark-core{transform-box:fill-box;transform-origin:center;animation:core 3.2s ease-in-out infinite}
+
+/* ---------- menu ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(7,9,18,.74);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(35,42,68,.8)}
+.nav-link{position:relative;display:inline-block;text-decoration:none;padding:10px 2px;color:#C9CBD8;transition:color .25s}
+.nav-link::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;border-radius:2px;background:linear-gradient(90deg,#FFB547,#FFE3A8);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.nav-link:hover,.nav-link:focus-visible{color:#FFFFFF}
+.nav-link:hover::after,.nav-link:focus-visible::after{transform:scaleX(1)}
+.caret{display:inline-block;margin-left:6px;font-size:10px;transition:transform .3s}
+.dd{position:relative}
+.dd:hover .caret,.dd:focus-within .caret{transform:rotate(180deg)}
+.dd-panel{position:absolute;top:100%;left:50%;padding-top:16px;opacity:0;visibility:hidden;transform:translate(-50%,10px);transition:opacity .25s,transform .3s cubic-bezier(.2,.7,.2,1),visibility .25s}
+.dd:hover .dd-panel,.dd:focus-within .dd-panel{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.dd-box{width:360px;box-sizing:border-box;background:#0E1220;border:1px solid #232A44;border-radius:18px;padding:10px;display:flex;flex-direction:column;gap:2px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(255,181,71,.1)}
+.dd-item{display:flex;gap:14px;align-items:center;padding:12px 14px;border-radius:12px;text-decoration:none;transition:background .25s,transform .25s}
+.dd-item:hover,.dd-item:focus-visible{background:#1A2038;transform:translateX(4px)}
+.dd-dot{flex:none;width:10px;height:10px;border-radius:50%;background:#FFB547;transition:transform .3s,box-shadow .3s}
+.dd-item:hover .dd-dot{transform:scale(1.5);box-shadow:0 0 14px 3px rgba(255,181,71,.8)}
+.dd-arrow{margin-left:auto;opacity:0;transform:translateX(-8px);transition:opacity .25s,transform .25s;color:#FFB547}
+.dd-item:hover .dd-arrow{opacity:1;transform:none}
+
+/* ---------- rolagem: barra, dica e jornada ---------- */
+.pbar{position:fixed;left:0;top:0;right:0;height:3px;z-index:70;background:linear-gradient(90deg,#FFB547,#FFE3A8);transform:scaleX(0);transform-origin:left;pointer-events:none}
+@supports (animation-timeline:scroll()){.pbar{animation:pgrow linear both;animation-timeline:scroll(root)}}
+@keyframes pgrow{to{transform:scaleX(1)}}
+.cue{display:flex;flex-direction:column;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#7C8199;text-align:center}
+.cue-line{width:1px;height:44px;background:#232A44;position:relative;overflow:hidden}
+.cue-line::after{content:"";position:absolute;left:0;right:0;height:40%;background:#FFB547;animation:flow 2s linear infinite}
+.journey{position:relative;height:520vh;background:#070912}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(55% 60% at 66% 50%,rgba(255,181,71,.07),rgba(255,181,71,0) 70%),#070912}
+.jcanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 60% 50%,rgba(7,9,18,0) 40%,rgba(7,9,18,.6) 100%)}
+.jcopy{position:absolute;inset:0;display:flex;align-items:center;padding:0 24px;pointer-events:none}
+.jcopy-in{width:100%;max-width:1200px;margin:0 auto;box-sizing:border-box}
+.beats{display:grid;max-width:540px}
+.beat{grid-area:1/1;position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:18px;opacity:0;text-shadow:0 1px 2px rgba(7,9,18,.95),0 3px 14px rgba(7,9,18,.8),0 10px 44px rgba(7,9,18,.8)}
+.beat:first-child{opacity:1}
+.beat::before{content:"";position:absolute;inset:-14% -12%;z-index:-1;background:radial-gradient(ellipse 74% 62% at 40% 50%,rgba(7,9,18,.62),rgba(7,9,18,0) 76%)}
+.beat a{pointer-events:none;text-shadow:none}
+.rail{position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:50%;width:2px;height:160px;margin-top:-80px;background:#232A44;border-radius:2px;overflow:hidden}
+.rail-fill{width:100%;height:100%;background:linear-gradient(180deg,#FFE3A8,#FFB547);transform:scaleY(0);transform-origin:top}
+@media (max-width:760px){
+.jcopy{align-items:flex-end;padding-bottom:9vh}
+.beats{max-width:none}
+.rail{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+.journey{height:auto}
+.stage{position:relative;height:auto;overflow:visible;padding:56px 0 48px;display:flex;flex-direction:column;gap:32px}
+.jcanvas{position:relative;inset:auto;height:360px}
+.scrim,.rail{display:none}
+.jcopy{position:relative;inset:auto;align-items:flex-start;padding:0 24px}
+.beats{display:flex;flex-direction:column;gap:44px}
+.beat{opacity:1!important;transform:none!important;grid-area:auto}
+.beat::before{display:none}
+.beat a{pointer-events:auto}
+}
+
+/* ---------- salto entre seções distantes ---------- */
+.jfade{position:fixed;inset:0;z-index:90;background:#070912;opacity:0;pointer-events:none;transition:opacity .28s ease}
+.jfade.on{opacity:1;pointer-events:auto}
+
+/* ---------- idioma ---------- */
+.langs{display:inline-flex;border:1px solid #353E60;border-radius:999px;padding:3px;gap:2px}
+.lang{appearance:none;border:0;background:transparent;padding:5px;border-radius:999px;cursor:pointer;line-height:0;transition:background .25s}
+.lang svg{display:block;opacity:.55;transition:opacity .25s,transform .3s cubic-bezier(.2,.7,.2,1)}
+.lang:hover{background:rgba(255,181,71,.15)}
+.lang:hover svg{opacity:1;transform:scale(1.12)}
+.lang.on{background:#FFB547}
+.lang.on svg{opacity:1}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:16px;border-radius:999px;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,background .3s,border-color .3s}
+.btn .arrow{display:inline-block;transition:transform .3s}
+.btn:hover .arrow{transform:translateX(6px)}
+.btn-primary{background:#FFB547;color:#1A1100;padding:16px 28px;box-shadow:0 0 32px rgba(255,181,71,.35)}
+.btn-primary:hover{transform:translateY(-3px);background:#FFC56E;box-shadow:0 12px 44px rgba(255,181,71,.6)}
+.btn-ghost{border:1.5px solid #353E60;color:#F5F3EE;padding:14.5px 28px}
+.btn-ghost:hover{transform:translateY(-3px);border-color:#FFB547;background:rgba(255,181,71,.1)}
+.btn-nav{background:#FFB547;color:#1A1100;padding:11px 22px;font-size:15px}
+.btn-nav:hover{transform:translateY(-2px);background:#FFC56E;box-shadow:0 8px 28px rgba(255,181,71,.55)}
+
+/* ---------- hero ---------- */
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.orb-a{width:520px;height:520px;left:-160px;top:-60px;background:rgba(255,181,71,.24);animation:orbA 14s ease-in-out infinite}
+.orb-b{width:520px;height:520px;right:-160px;bottom:-140px;background:rgba(91,76,220,.34);animation:orbB 17s ease-in-out infinite}
+.shine{background:linear-gradient(90deg,#FFB547,#FFF1CF,#FF9F43,#FFB547);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 5s linear infinite}
+.float-card{animation:floaty 6s ease-in-out infinite}
+.node-live{animation:ping 1.8s ease-out infinite}
+.track{position:relative;overflow:hidden}
+.track::after{content:"";position:absolute;left:0;right:0;height:34%;background:linear-gradient(180deg,transparent,#FFB547,transparent);animation:flow 2.4s linear infinite}
+
+/* ---------- faixa rolante ---------- */
+.ticker-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.ticker{display:flex;width:max-content;animation:ticker 40s linear infinite}
+.ticker-wrap:hover .ticker{animation-play-state:paused}
+.tick{display:flex;align-items:center;gap:28px;padding-right:28px;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em;color:#7C8199;white-space:nowrap;transition:color .25s}
+.tick:hover{color:#FFFFFF}
+.tick-dot{width:6px;height:6px;border-radius:50%;background:#FFB547}
+
+/* ---------- cards ---------- */
+.card{position:relative;overflow:hidden;background:#0E1220;border:1px solid #232A44;transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .4s,box-shadow .4s,background .4s}
+.card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,#FFB547,#FFE3A8);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover{transform:translateY(-10px);border-color:#FFB547;background:#121830;box-shadow:0 24px 70px rgba(255,181,71,.18)}
+.card:hover::before{transform:scaleX(1)}
+.li{transition:transform .3s,color .3s}
+.card:hover .li{color:#FFFFFF}
+.li:hover{transform:translateX(6px)}
+.pill{transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,background .35s}
+.pill:hover{transform:translateY(-6px);border-color:#FFB547;background:rgba(255,181,71,.07)}
+.step{border-top:2px solid #FFB547;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,background .35s}
+.step:hover{transform:translateY(-6px);border-color:#FFE3A8;background:linear-gradient(180deg,rgba(255,181,71,.12),transparent)}
+.step .num{transition:transform .35s,color .35s;transform-origin:left}
+.step:hover .num{transform:scale(1.35);color:#FFFFFF}
+
+/* ---------- faq ---------- */
+.faq-q{transition:color .25s,padding-left .3s cubic-bezier(.2,.7,.2,1)}
+.faq-q:hover{color:#FFB547;padding-left:10px}
+.faq-plus{transition:transform .3s}
+
+/* ---------- contato ---------- */
+.cta-box{background:linear-gradient(120deg,#1B1233,#8A4B0F,#2A1A4A,#1B1233);background-size:300% 300%;animation:drift 12s ease-in-out infinite}
+.contact-row{transition:transform .3s}
+.contact-row:hover{transform:translateX(8px)}
+
+@media (max-width:760px){
+.dd-panel{display:none}
+.dd-box{width:auto}
+}
+
+/* ---------- menu compacto e versão leve para celular ---------- */
+.dsk{display:contents}
+.mmenu{display:none;position:relative}
+.burger{list-style:none;cursor:pointer;width:44px;height:44px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border-radius:12px;border:1px solid #353E60}
+.burger::-webkit-details-marker{display:none}
+.burger span{display:block;width:18px;height:2px;border-radius:2px;background:#F5F3EE;transition:transform .3s,opacity .3s}
+.mmenu[open] .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.mmenu[open] .burger span:nth-child(2){opacity:0}
+.mmenu[open] .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mpanel{position:absolute;right:0;top:calc(100% + 12px);width:min(270px,80vw);box-sizing:border-box;background:#0E1220;border:1px solid #232A44;border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:4px;box-shadow:0 24px 60px rgba(0,0,0,.6);animation:rise .3s cubic-bezier(.2,.7,.2,1) both}
+.mlink{text-decoration:none;padding:14px;border-radius:10px;font-weight:500;font-size:16px;color:#E4E5EC}
+.mlink:hover{background:#1A2038}
+.nav{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+@media (max-width:760px){
+.dsk{display:none}
+.mmenu{display:block}
+.nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(7,9,18,.97)}
+.nav.hide{transform:translateY(-100%)}
+.logo-word{font-size:18px}
+.logo-tag{font-size:8.5px;letter-spacing:.12em}
+.orb{filter:none;animation:none}
+.orb-a{background:radial-gradient(circle,rgba(255,181,71,.24),rgba(255,181,71,0) 70%)}
+.orb-b{background:radial-gradient(circle,rgba(91,76,220,.34),rgba(91,76,220,0) 70%)}
+.float-card,.shine,.cta-box{animation:none}
+.journey{height:400vh}
+.beat{text-shadow:0 1px 2px rgba(7,9,18,.95),0 4px 16px rgba(7,9,18,.85)}
+}
+@media (prefers-reduced-motion:reduce){
+*,*::before,*::after{animation:none!important;transition:none!important}
+html,body{scroll-behavior:auto}
+}
+
+</style>
+</head>
+<body>
+
+
+
+<div style="width:100%;background:#070912;color:#F5F3EE;font-family:'Inter',system-ui,sans-serif">
+
+<div class="pbar" aria-hidden="true"></div>
+<div id="jfade" class="jfade" aria-hidden="true"></div>
+
+<!-- MENU -->
+<div class="nav">
+<div style="display:flex;justify-content:center;padding:0 24px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;padding:14px 0;display:flex;flex-wrap:wrap;gap:8px 32px;align-items:center;justify-content:space-between">
+<a href="#topo" class="logo" aria-label="Eliora">
+<svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+<defs><linearGradient id="gNav" x1="4" y1="8" x2="36" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE3A8"/><stop offset="1" stop-color="#FF9F43"/></linearGradient></defs>
+<path d="M5 27a15 15 0 0 1 30 0" stroke="url(#gNav)" stroke-width="3" stroke-linecap="round"/>
+<path d="M12 27a8 8 0 0 1 16 0" stroke="url(#gNav)" stroke-width="3" stroke-linecap="round"/>
+<circle class="mark-core" cx="20" cy="27" r="2.8" fill="#FFE3A8"/>
+<path d="M5 34h30" stroke="url(#gNav)" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+</svg>
+<span class="lockup"><span class="logo-word">ELIORA</span><span class="logo-tag"><span data-i="hero.tagline">Technology with Purpose.</span></span></span>
+</a>
+<div style="display:flex;flex-wrap:wrap;gap:4px 28px;align-items:center;font-size:15px;font-weight:500">
+<div class="dsk">
+<div class="dd">
+<a href="#servicos" class="nav-link"><span data-i="nav.services">Serviços</span><span class="caret">▼</span></a>
+<div class="dd-panel">
+<div class="dd-box">
+
+<a href="#servicos" class="dd-item">
+<span class="dd-dot"></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.0.title">Desenvolvimento de sites</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.0.short">Rápidos, claros e fáceis de atualizar</span></span></span>
+<span class="dd-arrow">→</span>
+</a>
+
+<a href="#servicos" class="dd-item">
+<span class="dd-dot"></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.1.title">Desenvolvimento de SaaS</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.1.short">Produtos de software prontos para escalar</span></span></span>
+<span class="dd-arrow">→</span>
+</a>
+
+<a href="#servicos" class="dd-item">
+<span class="dd-dot"></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.2.title">Consultoria em IA</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.2.short">Onde a IA gera resultado no seu negócio</span></span></span>
+<span class="dd-arrow">→</span>
+</a>
+
+<a href="#servicos" class="dd-item">
+<span class="dd-dot"></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.3.title">Agentes de IA e automação</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.3.short">Rotinas que passam a rodar sozinhas</span></span></span>
+<span class="dd-arrow">→</span>
+</a>
+
+<a href="#servicos" class="dd-item">
+<span class="dd-dot"></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.4.title">Transformação digital</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.4.short">Processos, pessoas e tecnologia alinhados</span></span></span>
+<span class="dd-arrow">→</span>
+</a>
+
+<a href="#servicos" class="dd-item">
+<span class="dd-dot"></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.5.title">Software personalizado</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.5.short">Sistemas feitos para a sua operação</span></span></span>
+<span class="dd-arrow">→</span>
+</a>
+
+</div>
+</div>
+</div>
+<a href="#principios" class="nav-link"><span data-i="nav.why">Por que a Eliora</span></a>
+<a href="#processo" class="nav-link"><span data-i="nav.process">Como trabalhamos</span></a>
+<a href="#duvidas" class="nav-link"><span data-i="nav.faq">Dúvidas</span></a>
+</div>
+<div class="langs" role="group" aria-label="Idioma / Language">
+<button type="button" class="lang on" data-lang="pt" aria-pressed="true" aria-label="Português" title="Português">
+<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+<defs><clipPath id="cpBr"><circle cx="12" cy="12" r="12"/></clipPath></defs>
+<g clip-path="url(#cpBr)">
+<rect width="24" height="24" fill="#009B3A"/>
+<polygon points="12,3.8 22,12 12,20.2 2,12" fill="#FFDF00"/>
+<circle cx="12" cy="12" r="4.6" fill="#002776"/>
+<path d="M7.7 11.1c3.1-.9 6.4-.5 8.9 1.4" stroke="#FFFFFF" stroke-width="1" fill="none"/>
+</g>
+</svg>
+</button>
+<button type="button" class="lang" data-lang="en" aria-pressed="false" aria-label="English" title="English">
+<svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+<defs><clipPath id="cpUs"><circle cx="12" cy="12" r="12"/></clipPath></defs>
+<g clip-path="url(#cpUs)">
+<rect width="24" height="24" fill="#FFFFFF"/>
+<g fill="#B22234"><rect y="0" width="24" height="1.85"/><rect y="3.7" width="24" height="1.85"/><rect y="7.4" width="24" height="1.85"/><rect y="11.1" width="24" height="1.85"/><rect y="14.8" width="24" height="1.85"/><rect y="18.5" width="24" height="1.85"/><rect y="22.2" width="24" height="1.85"/></g>
+<rect width="12" height="12.95" fill="#3C3B6E"/>
+<g fill="#FFFFFF"><circle cx="2.6" cy="2.4" r=".6"/><circle cx="6" cy="2.4" r=".6"/><circle cx="9.4" cy="2.4" r=".6"/><circle cx="4.3" cy="5.2" r=".6"/><circle cx="7.7" cy="5.2" r=".6"/><circle cx="2.6" cy="8" r=".6"/><circle cx="6" cy="8" r=".6"/><circle cx="9.4" cy="8" r=".6"/><circle cx="4.3" cy="10.8" r=".6"/><circle cx="7.7" cy="10.8" r=".6"/></g>
+</g>
+</svg>
+</button>
+</div>
+<div class="dsk"><a href="#contato" class="btn btn-nav"><span data-i="nav.cta">Fale com a gente</span> <span class="arrow">→</span></a></div>
+<details class="mmenu">
+<summary class="burger" aria-label="Menu"><span></span><span></span><span></span></summary>
+<div class="mpanel">
+<a href="#servicos" class="mlink"><span data-i="nav.services">Serviços</span></a>
+<a href="#principios" class="mlink"><span data-i="nav.why">Por que a Eliora</span></a>
+<a href="#processo" class="mlink"><span data-i="nav.process">Como trabalhamos</span></a>
+<a href="#duvidas" class="mlink"><span data-i="nav.faq">Dúvidas</span></a>
+<a href="#contato" class="btn btn-nav" style="justify-content:center;margin-top:6px"><span data-i="nav.cta">Fale com a gente</span></a>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+
+<!-- HERO -->
+<div id="topo" style="position:relative;overflow:clip;background:#070912">
+<div class="orb orb-a"></div>
+<div class="orb orb-b"></div>
+<div style="position:relative;display:flex;justify-content:center;padding:72px 24px 96px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+<div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:28px">
+<div class="rise" style="font-style:italic;font-weight:300;font-size:18px;letter-spacing:0.14em;color:#FFB547"><span data-i="hero.tagline">Technology with Purpose.</span></div>
+<h1 class="rise d1" style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(36px,5.2vw,68px);line-height:1.07;letter-spacing:-0.03em;text-wrap:balance"><span data-i="hero.titleA">Tecnologia e </span><span class="shine"><span data-i="hero.titleB">inteligência</span></span><span data-i="hero.titleC"> para empresas que querem evoluir.</span></h1>
+<p class="rise d2" style="margin:0;font-size:19px;line-height:1.6;color:#A7AABB;max-width:580px"><span data-i="hero.text">A Eliora cria sites, produtos SaaS, agentes de IA e soluções sob medida que mudam a forma como o seu negócio opera e cresce.</span></p>
+</div>
+
+<div class="rise d4" style="flex:1 1 380px;min-width:0">
+<div class="float-card" style="background:rgba(14,18,32,.88);border:1px solid #232A44;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:22px;box-sizing:border-box;box-shadow:0 0 90px rgba(255,181,71,.14)">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#7C8199">
+<span><span data-i="flow.label">Exemplo de agente de IA</span></span><span><span data-i="flow.note">ilustrativo</span></span>
+</div>
+<div style="display:flex;flex-direction:column;gap:0">
+<div style="display:flex;gap:16px;align-items:flex-start">
+<div style="display:flex;flex-direction:column;align-items:center;align-self:stretch">
+<div style="width:14px;height:14px;border-radius:50%;background:#F5F3EE;flex:none;margin-top:4px"></div>
+<div class="track" style="width:2px;flex:1;background:#2A3250"></div>
+</div>
+<div style="padding-bottom:26px"><div style="font-weight:600;font-size:17px"><span data-i="flow.s1t">Cliente envia um pedido</span></div><div style="font-size:15px;line-height:1.5;color:#A7AABB;margin-top:4px"><span data-i="flow.s1d">Por WhatsApp, e-mail ou formulário do site.</span></div></div>
+</div>
+<div style="display:flex;gap:16px;align-items:flex-start">
+<div style="display:flex;flex-direction:column;align-items:center;align-self:stretch">
+<div class="node-live" style="width:14px;height:14px;border-radius:50%;background:#FFB547;flex:none;margin-top:4px"></div>
+<div class="track" style="width:2px;flex:1;background:#2A3250"></div>
+</div>
+<div style="padding-bottom:26px"><div style="font-weight:600;font-size:17px"><span data-i="flow.s2t">O agente entende e age</span></div><div style="font-size:15px;line-height:1.5;color:#A7AABB;margin-top:4px"><span data-i="flow.s2d">Classifica o pedido, consulta seus dados e resolve o que for simples.</span></div></div>
+</div>
+<div style="display:flex;gap:16px;align-items:flex-start">
+<div style="display:flex;flex-direction:column;align-items:center;align-self:stretch">
+<div style="width:14px;height:14px;border-radius:50%;background:#F5F3EE;flex:none;margin-top:4px"></div>
+</div>
+<div><div style="font-weight:600;font-size:17px"><span data-i="flow.s3t">Sua equipe decide o que importa</span></div><div style="font-size:15px;line-height:1.5;color:#A7AABB;margin-top:4px"><span data-i="flow.s3d">Só os casos que pedem julgamento humano chegam até ela.</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- JORNADA (rolagem) -->
+<div style="display:flex;justify-content:center;padding:0 24px 40px;background:#070912">
+<div class="cue"><span><span data-i="journey.cue">Role para ver como funciona</span></span><span class="cue-line"></span></div>
+</div>
+<div id="jornada" class="journey" role="region" aria-label="Como uma ideia vira solução" data-i-aria="journey.label">
+<div id="jstage" class="stage">
+<canvas id="jcanvas" class="jcanvas" aria-hidden="true"></canvas>
+<div class="scrim"></div>
+<div class="jcopy"><div class="jcopy-in"><div class="beats">
+
+<div class="beat">
+<div style="font-family:'Sora',sans-serif;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB547"><span data-i="journey.beats.0.n">01</span> · <span data-i="journey.beats.0.tag">Diagnóstico</span></div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(32px,4.6vw,60px);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance"><span data-i="journey.beats.0.title">Tudo começa com uma faísca.</span></h2>
+<p style="margin:0;font-size:18px;line-height:1.6;color:#E4E5EC;max-width:44ch"><span data-i="journey.beats.0.text">Uma conversa, um problema real e os dados na mesa. É daí que sai o caminho.</span></p>
+
+</div>
+
+<div class="beat">
+<div style="font-family:'Sora',sans-serif;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB547"><span data-i="journey.beats.1.n">02</span> · <span data-i="journey.beats.1.tag">Protótipo</span></div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(32px,4.6vw,60px);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance"><span data-i="journey.beats.1.title">A inteligência dá forma.</span></h2>
+<p style="margin:0;font-size:18px;line-height:1.6;color:#E4E5EC;max-width:44ch"><span data-i="journey.beats.1.text">Ideias viram agentes, fluxos e telas que você pode testar logo.</span></p>
+
+</div>
+
+<div class="beat">
+<div style="font-family:'Sora',sans-serif;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB547"><span data-i="journey.beats.2.n">03</span> · <span data-i="journey.beats.2.tag">Implantação</span></div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(32px,4.6vw,60px);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance"><span data-i="journey.beats.2.title">A estrutura sustenta.</span></h2>
+<p style="margin:0;font-size:18px;line-height:1.6;color:#E4E5EC;max-width:44ch"><span data-i="journey.beats.2.text">Sistemas integrados, seguros e prontos para o uso de todos os dias.</span></p>
+
+</div>
+
+<div class="beat">
+<div style="font-family:'Sora',sans-serif;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB547"><span data-i="journey.beats.3.n">04</span> · <span data-i="journey.beats.3.tag">Evolução</span></div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(32px,4.6vw,60px);line-height:1.06;letter-spacing:-0.03em;text-wrap:balance"><span data-i="journey.beats.3.title">E o negócio evolui.</span></h2>
+<p style="margin:0;font-size:18px;line-height:1.6;color:#E4E5EC;max-width:44ch"><span data-i="journey.beats.3.text">Resultados medidos, ajustes contínuos e o próximo passo sempre à vista.</span></p>
+
+<a href="#contato" class="btn btn-primary" tabindex="-1"><span data-i="hero.primary">Fale com a gente</span> <span class="arrow">→</span></a>
+
+</div>
+
+</div></div></div>
+<div class="rail" aria-hidden="true"><div id="jrail" class="rail-fill"></div></div>
+</div>
+</div>
+
+<!-- FAIXA ROLANTE -->
+<div style="border-top:1px solid #232A44;border-bottom:1px solid #232A44;background:#0A0D19;padding:22px 0">
+<div class="ticker-wrap">
+<div class="ticker">
+
+<div class="tick"><span><span data-i="ticker.0">Sites</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.1">SaaS</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.2">Consultoria em IA</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.3">Agentes de IA</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.4">Automação de negócios</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.5">Transformação digital</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.6">Software sob medida</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.7">Integrações via API</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.0">Sites</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.1">SaaS</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.2">Consultoria em IA</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.3">Agentes de IA</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.4">Automação de negócios</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.5">Transformação digital</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.6">Software sob medida</span></span><span class="tick-dot"></span></div>
+
+<div class="tick"><span><span data-i="ticker.7">Integrações via API</span></span><span class="tick-dot"></span></div>
+
+</div>
+</div>
+</div>
+
+<!-- SERVIÇOS -->
+<div id="servicos" style="display:flex;justify-content:center;padding:112px 24px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px">
+<div class="reveal" style="display:flex;flex-wrap:wrap;gap:16px 48px;align-items:flex-end;justify-content:space-between">
+<h2 style="margin:0;flex:1 1 420px;min-width:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.1;letter-spacing:-0.025em;text-wrap:balance"><span data-i="services.title">Soluções para construir, automatizar e evoluir.</span></h2>
+<p style="margin:0;flex:1 1 320px;min-width:0;font-size:18px;line-height:1.6;color:#A7AABB;max-width:480px"><span data-i="services.text">Atuamos em um ou em vários projetos ao mesmo tempo. O mesmo time cuida da estratégia, do design e do código.</span></p>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+
+<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.0.tag">Presença digital</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.0.title">Desenvolvimento de sites</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.0.text">Sites institucionais, landing pages e lojas que apresentam bem a sua empresa e levam o visitante a agir.</span></p>
+<div style="height:1px;background:#232A44"></div>
+<div style="display:flex;flex-direction:column;gap:11px">
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.0.items.0">Design e texto alinhados à sua marca</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.0.items.1">Desempenho e SEO desde o primeiro dia</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.0.items.2">Atendimento com IA no próprio site, se fizer sentido</span></span>
+</div>
+
+</div>
+</div>
+
+<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.1.tag">Produto</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.1.title">Desenvolvimento de SaaS</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.1.text">Do protótipo ao produto em operação, construímos plataformas que crescem junto com a sua base de clientes.</span></p>
+<div style="height:1px;background:#232A44"></div>
+<div style="display:flex;flex-direction:column;gap:11px">
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.1.items.0">Contas, planos e cobrança recorrente</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.1.items.1">Painel administrativo e métricas de uso</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.1.items.2">Arquitetura preparada para escala</span></span>
+</div>
+
+</div>
+</div>
+
+<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.2.tag">Estratégia</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.2.title">Consultoria em IA</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.2.text">Mapeamos processos, apontamos as melhores oportunidades e definimos um plano realista de adoção.</span></p>
+<div style="height:1px;background:#232A44"></div>
+<div style="display:flex;flex-direction:column;gap:11px">
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.2.items.0">Diagnóstico de processos e dados</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.2.items.1">Roadmap de projetos priorizados</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.2.items.2">Treinamento de equipes e regras de uso</span></span>
+</div>
+
+</div>
+</div>
+
+<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.3.tag">Automação</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.3.title">Agentes de IA e automação</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.3.text">Agentes e fluxos automatizados que assumem tarefas repetitivas e deixam sua equipe no que exige decisão.</span></p>
+<div style="height:1px;background:#232A44"></div>
+<div style="display:flex;flex-direction:column;gap:11px">
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.3.items.0">Atendimento, vendas e operação</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.3.items.1">Integração com os sistemas que você já usa</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.3.items.2">Supervisão humana nos pontos críticos</span></span>
+</div>
+
+</div>
+</div>
+
+<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.4.tag">Mudança</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.4.title">Transformação digital</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.4.text">Acompanhamos a modernização da empresa, passo a passo, com entregas que você consegue medir.</span></p>
+<div style="height:1px;background:#232A44"></div>
+<div style="display:flex;flex-direction:column;gap:11px">
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.4.items.0">Digitalização de processos manuais</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.4.items.1">Migração e integração de sistemas</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.4.items.2">Acompanhamento da adoção pela equipe</span></span>
+</div>
+
+</div>
+</div>
+
+<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.5.tag">Sob medida</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.5.title">Software personalizado</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.5.text">Quando nenhuma ferramenta pronta resolve, desenhamos e construímos o sistema certo para o seu caso.</span></p>
+<div style="height:1px;background:#232A44"></div>
+<div style="display:flex;flex-direction:column;gap:11px">
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.5.items.0">Sistemas internos e portais</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.5.items.1">APIs e integrações</span></span>
+</div>
+
+<div class="li" style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#D7D8E2">
+<span style="flex:none;width:8px;height:8px;border-radius:50%;background:#FFB547;margin-top:7px;box-shadow:0 0 10px rgba(255,181,71,0.7)"></span>
+<span><span data-i="services.list.5.items.2">Manutenção e evolução contínuas</span></span>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- PRINCÍPIOS -->
+<div id="principios" style="display:flex;justify-content:center;padding:0 24px 112px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-direction:column;gap:40px">
+<div class="reveal" style="display:flex;flex-direction:column;gap:16px;max-width:760px">
+<div style="font-family:'Sora',sans-serif;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB547"><span data-i="why.eyebrow">Por que a Eliora</span></div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.1;letter-spacing:-0.025em;text-wrap:balance"><span data-i="why.title">Construímos experiências digitais com significado.</span></h2>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+
+<div class="pill reveal" style="flex:1 1 240px;min-width:0;box-sizing:border-box;border:1px solid #232A44;border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-0.01em"><span data-i="why.list.0.title">Estratégia antes do código</span></h3>
+<p style="margin:0;font-size:15px;line-height:1.65;color:#A7AABB"><span data-i="why.list.0.text">Começamos entendendo o seu negócio, para construir só o que gera resultado.</span></p>
+</div>
+
+<div class="pill reveal" style="flex:1 1 240px;min-width:0;box-sizing:border-box;border:1px solid #232A44;border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-0.01em"><span data-i="why.list.1.title">Feito para crescer</span></h3>
+<p style="margin:0;font-size:15px;line-height:1.65;color:#A7AABB"><span data-i="why.list.1.text">Arquitetura pensada para escalar junto com a sua operação.</span></p>
+</div>
+
+<div class="pill reveal" style="flex:1 1 240px;min-width:0;box-sizing:border-box;border:1px solid #232A44;border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-0.01em"><span data-i="why.list.2.title">IA aplicada com critério</span></h3>
+<p style="margin:0;font-size:15px;line-height:1.65;color:#A7AABB"><span data-i="why.list.2.text">Usamos IA onde ela resolve um problema real, com dados protegidos e supervisão humana.</span></p>
+</div>
+
+<div class="pill reveal" style="flex:1 1 240px;min-width:0;box-sizing:border-box;border:1px solid #232A44;border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;line-height:1.25;letter-spacing:-0.01em"><span data-i="why.list.3.title">Parceria de longo prazo</span></h3>
+<p style="margin:0;font-size:15px;line-height:1.65;color:#A7AABB"><span data-i="why.list.3.text">Seguimos ao seu lado depois que o projeto vai ao ar.</span></p>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- PROCESSO -->
+<div id="processo" style="display:flex;justify-content:center;padding:96px 24px;background:#0A0D19;border-top:1px solid #232A44;border-bottom:1px solid #232A44">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px">
+<div class="reveal" style="display:flex;flex-direction:column;gap:16px;max-width:720px">
+<div style="font-family:'Sora',sans-serif;font-size:12px;letter-spacing:0.28em;text-transform:uppercase;color:#FFB547"><span data-i="process.eyebrow">Como trabalhamos</span></div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(30px,4vw,48px);line-height:1.1;letter-spacing:-0.025em;text-wrap:balance"><span data-i="process.title">Do primeiro papo ao projeto no ar, em quatro etapas.</span></h2>
+<p style="margin:0;font-size:18px;line-height:1.6;color:#A7AABB"><span data-i="process.text">Cada etapa termina com uma entrega que você consegue ver e testar antes de seguir.</span></p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+
+<div class="step reveal" style="flex:1 1 240px;min-width:0;box-sizing:border-box;padding:20px 16px;display:flex;flex-direction:column;gap:12px;border-radius:0 0 14px 14px">
+<div class="num" style="font-family:'Sora',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.1em;color:#FFB547"><span data-i="process.list.0.n">01</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em"><span data-i="process.list.0.title">Diagnóstico</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="process.list.0.text">Conversamos com você e sua equipe para entender o problema, os dados disponíveis e o que seria sucesso.</span></p>
+</div>
+
+<div class="step reveal" style="flex:1 1 240px;min-width:0;box-sizing:border-box;padding:20px 16px;display:flex;flex-direction:column;gap:12px;border-radius:0 0 14px 14px">
+<div class="num" style="font-family:'Sora',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.1em;color:#FFB547"><span data-i="process.list.1.n">02</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em"><span data-i="process.list.1.title">Protótipo</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="process.list.1.text">Entregamos uma versão funcional em pouco tempo, para você testar antes de investir no projeto completo.</span></p>
+</div>
+
+<div class="step reveal" style="flex:1 1 240px;min-width:0;box-sizing:border-box;padding:20px 16px;display:flex;flex-direction:column;gap:12px;border-radius:0 0 14px 14px">
+<div class="num" style="font-family:'Sora',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.1em;color:#FFB547"><span data-i="process.list.2.n">03</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em"><span data-i="process.list.2.title">Implantação</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="process.list.2.text">Colocamos no ar, integramos com seus sistemas e treinamos quem vai usar no dia a dia.</span></p>
+</div>
+
+<div class="step reveal" style="flex:1 1 240px;min-width:0;box-sizing:border-box;padding:20px 16px;display:flex;flex-direction:column;gap:12px;border-radius:0 0 14px 14px">
+<div class="num" style="font-family:'Sora',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.1em;color:#FFB547"><span data-i="process.list.3.n">04</span></div>
+<h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em"><span data-i="process.list.3.title">Evolução</span></h3>
+<p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="process.list.3.text">Acompanhamos os resultados, corrigimos o que for preciso e propomos os próximos passos.</span></p>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- DÚVIDAS -->
+<div id="duvidas" style="display:flex;justify-content:center;padding:112px 24px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:48px">
+<div class="reveal" style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:16px">
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(30px,3.8vw,44px);line-height:1.1;letter-spacing:-0.025em;text-wrap:balance"><span data-i="faqTitle">Perguntas que sempre aparecem.</span></h2>
+<p style="margin:0;font-size:17px;line-height:1.6;color:#A7AABB"><span data-i="faqText">Não achou a sua? Escreva para a gente.</span></p>
+</div>
+<div style="flex:2 1 520px;min-width:0;display:flex;flex-direction:column">
+
+<details style="border-top:1px solid #232A44;padding:0">
+<summary class="faq-q" style="display:flex;justify-content:space-between;gap:24px;align-items:center;padding:24px 0;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.01em">
+<span style="min-width:0"><span data-i="faqList.0.q">Preciso entender de IA para contratar?</span></span>
+<span class="faq-plus" style="flex:none;font-size:28px;line-height:1;color:#FFB547">+</span>
+</summary>
+<p class="faq-a" style="margin:0 0 24px;font-size:16px;line-height:1.7;color:#A7AABB;max-width:620px"><span data-i="faqList.0.a">Não. Você traz o problema do negócio e nós traduzimos em uma solução. Explicamos cada decisão em linguagem simples.</span></p>
+</details>
+
+<details style="border-top:1px solid #232A44;padding:0">
+<summary class="faq-q" style="display:flex;justify-content:space-between;gap:24px;align-items:center;padding:24px 0;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.01em">
+<span style="min-width:0"><span data-i="faqList.1.q">Posso contratar só um dos serviços?</span></span>
+<span class="faq-plus" style="flex:none;font-size:28px;line-height:1;color:#FFB547">+</span>
+</summary>
+<p class="faq-a" style="margin:0 0 24px;font-size:16px;line-height:1.7;color:#A7AABB;max-width:620px"><span data-i="faqList.1.a">Pode. Muitos clientes começam por um site ou por uma consultoria curta e depois seguem para outras frentes.</span></p>
+</details>
+
+<details style="border-top:1px solid #232A44;padding:0">
+<summary class="faq-q" style="display:flex;justify-content:space-between;gap:24px;align-items:center;padding:24px 0;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.01em">
+<span style="min-width:0"><span data-i="faqList.2.q">Como ficam os dados da minha empresa?</span></span>
+<span class="faq-plus" style="flex:none;font-size:28px;line-height:1;color:#FFB547">+</span>
+</summary>
+<p class="faq-a" style="margin:0 0 24px;font-size:16px;line-height:1.7;color:#A7AABB;max-width:620px"><span data-i="faqList.2.a">Definimos junto com você quais dados entram em cada solução, quem acessa e onde ficam guardados, sempre dentro da LGPD.</span></p>
+</details>
+
+<details style="border-top:1px solid #232A44;padding:0">
+<summary class="faq-q" style="display:flex;justify-content:space-between;gap:24px;align-items:center;padding:24px 0;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;letter-spacing:-0.01em">
+<span style="min-width:0"><span data-i="faqList.3.q">Quanto tempo leva um projeto?</span></span>
+<span class="faq-plus" style="flex:none;font-size:28px;line-height:1;color:#FFB547">+</span>
+</summary>
+<p class="faq-a" style="margin:0 0 24px;font-size:16px;line-height:1.7;color:#A7AABB;max-width:620px"><span data-i="faqList.3.a">Depende do escopo. Após o diagnóstico, enviamos uma proposta com prazo e valor para cada etapa.</span></p>
+</details>
+
+<div style="border-top:1px solid #232A44"></div>
+</div>
+</div>
+</div>
+
+<!-- CONTATO -->
+<div id="contato" style="display:flex;justify-content:center;padding:0 24px 96px">
+<div class="cta-box reveal" style="width:100%;max-width:1200px;box-sizing:border-box;border:1px solid #3A3260;color:#FFFFFF;border-radius:28px;padding:clamp(32px,6vw,72px);display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;justify-content:space-between">
+<div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px">
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:clamp(30px,4.4vw,54px);line-height:1.08;letter-spacing:-0.03em;text-wrap:balance"><span data-i="contact.title">Vamos conversar sobre o seu projeto?</span></h2>
+<p style="margin:0;font-size:18px;line-height:1.6;max-width:520px;color:#F1ECE4"><span data-i="contact.text">Conte o que você quer resolver. Respondemos com um primeiro caminho e uma estimativa de prazo.</span></p>
+</div>
+<div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:18px;font-size:17px">
+<div class="contact-row" style="display:flex;flex-direction:column;gap:4px">
+<span style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFE3A8"><span data-i="contact.email">E-mail</span></span>
+<a href="mailto:contato@eliorahub.space" style="font-weight:600;font-size:22px;overflow-wrap:anywhere;text-decoration:none;color:inherit">contato@eliorahub.space</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- RODAPÉ -->
+<div style="display:flex;justify-content:center;padding:0 24px 40px">
+<div style="width:100%;max-width:1200px;box-sizing:border-box;border-top:1px solid #232A44;padding-top:32px;display:flex;flex-wrap:wrap;gap:20px 32px;justify-content:space-between;align-items:center;font-size:14px;color:#7C8199">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:12px">
+<svg width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+<defs><linearGradient id="gFoot" x1="4" y1="8" x2="36" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#FFE3A8"/><stop offset="1" stop-color="#FF9F43"/></linearGradient></defs>
+<path d="M5 27a15 15 0 0 1 30 0" stroke="url(#gFoot)" stroke-width="3" stroke-linecap="round"/>
+<path d="M12 27a8 8 0 0 1 16 0" stroke="url(#gFoot)" stroke-width="3" stroke-linecap="round"/>
+<circle cx="20" cy="27" r="2.8" fill="#FFE3A8"/>
+<path d="M5 34h30" stroke="url(#gFoot)" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+</svg>
+<span class="lockup"><span class="logo-word alt" style="font-size:18px">ELIORA</span><span class="logo-tag"><span data-i="hero.tagline">Technology with Purpose.</span></span></span>
+</div>
+</div>
+<span><span data-i="footer.rights">© 2026 Eliora. Todos os direitos reservados.</span></span>
+</div>
+</div>
+
+</div>
+
+<script>
+
+const META = {"pt":{"title":"Eliora | Sites, SaaS e IA para empresas","desc":"A Eliora cria sites, produtos SaaS, agentes de IA, consultoria em IA e software sob medida para empresas que querem evoluir. Technology with Purpose."},"en":{"title":"Eliora | Websites, SaaS and AI for business","desc":"Eliora builds websites, SaaS products, AI agents, AI consulting and custom software for companies ready to evolve. Technology with Purpose."}};
+const COPY = {
+pt: {
+nav: { services: 'Serviços', why: 'Por que a Eliora', process: 'Como trabalhamos', faq: 'Dúvidas', cta: 'Fale com a gente' },
+hero: {
+tagline: 'Technology with Purpose.',
+titleA: 'Tecnologia e ',
+titleB: 'inteligência',
+titleC: ' para empresas que querem evoluir.',
+text: 'A Eliora cria sites, produtos SaaS, agentes de IA e soluções sob medida que mudam a forma como o seu negócio opera e cresce.',
+primary: 'Fale com a gente',
+secondary: 'Conheça as soluções'
+},
+flow: {
+label: 'Exemplo de agente de IA', note: 'ilustrativo',
+s1t: 'Cliente envia um pedido', s1d: 'Por WhatsApp, e-mail ou formulário do site.',
+s2t: 'O agente entende e age', s2d: 'Classifica o pedido, consulta seus dados e resolve o que for simples.',
+s3t: 'Sua equipe decide o que importa', s3d: 'Só os casos que pedem julgamento humano chegam até ela.'
+},
+journey: {
+cue: 'Role para ver como funciona',
+label: 'Como uma ideia vira solução',
+beats: [
+{ n: '01', tag: 'Diagnóstico', title: 'Tudo começa com uma faísca.', text: 'Uma conversa, um problema real e os dados na mesa. É daí que sai o caminho.' },
+{ n: '02', tag: 'Protótipo', title: 'A inteligência dá forma.', text: 'Ideias viram agentes, fluxos e telas que você pode testar logo.' },
+{ n: '03', tag: 'Implantação', title: 'A estrutura sustenta.', text: 'Sistemas integrados, seguros e prontos para o uso de todos os dias.' },
+{ n: '04', tag: 'Evolução', title: 'E o negócio evolui.', text: 'Resultados medidos, ajustes contínuos e o próximo passo sempre à vista.' }
+]
+},
+ticker: ['Sites', 'SaaS', 'Consultoria em IA', 'Agentes de IA', 'Automação de negócios', 'Transformação digital', 'Software sob medida', 'Integrações via API'],
+services: {
+title: 'Soluções para construir, automatizar e evoluir.',
+text: 'Atuamos em um ou em vários projetos ao mesmo tempo. O mesmo time cuida da estratégia, do design e do código.',
+list: [
+{ tag: 'Presença digital', title: 'Desenvolvimento de sites', short: 'Rápidos, claros e fáceis de atualizar', text: 'Sites institucionais, landing pages e lojas que apresentam bem a sua empresa e levam o visitante a agir.', items: ['Design e texto alinhados à sua marca', 'Desempenho e SEO desde o primeiro dia', 'Atendimento com IA no próprio site, se fizer sentido'] },
+{ tag: 'Produto', title: 'Desenvolvimento de SaaS', short: 'Produtos de software prontos para escalar', text: 'Do protótipo ao produto em operação, construímos plataformas que crescem junto com a sua base de clientes.', items: ['Contas, planos e cobrança recorrente', 'Painel administrativo e métricas de uso', 'Arquitetura preparada para escala'] },
+{ tag: 'Estratégia', title: 'Consultoria em IA', short: 'Onde a IA gera resultado no seu negócio', text: 'Mapeamos processos, apontamos as melhores oportunidades e definimos um plano realista de adoção.', items: ['Diagnóstico de processos e dados', 'Roadmap de projetos priorizados', 'Treinamento de equipes e regras de uso'] },
+{ tag: 'Automação', title: 'Agentes de IA e automação', short: 'Rotinas que passam a rodar sozinhas', text: 'Agentes e fluxos automatizados que assumem tarefas repetitivas e deixam sua equipe no que exige decisão.', items: ['Atendimento, vendas e operação', 'Integração com os sistemas que você já usa', 'Supervisão humana nos pontos críticos'] },
+{ tag: 'Mudança', title: 'Transformação digital', short: 'Processos, pessoas e tecnologia alinhados', text: 'Acompanhamos a modernização da empresa, passo a passo, com entregas que você consegue medir.', items: ['Digitalização de processos manuais', 'Migração e integração de sistemas', 'Acompanhamento da adoção pela equipe'] },
+{ tag: 'Sob medida', title: 'Software personalizado', short: 'Sistemas feitos para a sua operação', text: 'Quando nenhuma ferramenta pronta resolve, desenhamos e construímos o sistema certo para o seu caso.', items: ['Sistemas internos e portais', 'APIs e integrações', 'Manutenção e evolução contínuas'] }
+]
+},
+why: {
+eyebrow: 'Por que a Eliora',
+title: 'Construímos experiências digitais com significado.',
+list: [
+{ title: 'Estratégia antes do código', text: 'Começamos entendendo o seu negócio, para construir só o que gera resultado.' },
+{ title: 'Feito para crescer', text: 'Arquitetura pensada para escalar junto com a sua operação.' },
+{ title: 'IA aplicada com critério', text: 'Usamos IA onde ela resolve um problema real, com dados protegidos e supervisão humana.' },
+{ title: 'Parceria de longo prazo', text: 'Seguimos ao seu lado depois que o projeto vai ao ar.' }
+]
+},
+process: {
+eyebrow: 'Como trabalhamos',
+title: 'Do primeiro papo ao projeto no ar, em quatro etapas.',
+text: 'Cada etapa termina com uma entrega que você consegue ver e testar antes de seguir.',
+list: [
+{ n: '01', title: 'Diagnóstico', text: 'Conversamos com você e sua equipe para entender o problema, os dados disponíveis e o que seria sucesso.' },
+{ n: '02', title: 'Protótipo', text: 'Entregamos uma versão funcional em pouco tempo, para você testar antes de investir no projeto completo.' },
+{ n: '03', title: 'Implantação', text: 'Colocamos no ar, integramos com seus sistemas e treinamos quem vai usar no dia a dia.' },
+{ n: '04', title: 'Evolução', text: 'Acompanhamos os resultados, corrigimos o que for preciso e propomos os próximos passos.' }
+]
+},
+faqTitle: 'Perguntas que sempre aparecem.',
+faqText: 'Não achou a sua? Escreva para a gente.',
+faqList: [
+{ q: 'Preciso entender de IA para contratar?', a: 'Não. Você traz o problema do negócio e nós traduzimos em uma solução. Explicamos cada decisão em linguagem simples.' },
+{ q: 'Posso contratar só um dos serviços?', a: 'Pode. Muitos clientes começam por um site ou por uma consultoria curta e depois seguem para outras frentes.' },
+{ q: 'Como ficam os dados da minha empresa?', a: 'Definimos junto com você quais dados entram em cada solução, quem acessa e onde ficam guardados, sempre dentro da LGPD.' },
+{ q: 'Quanto tempo leva um projeto?', a: 'Depende do escopo. Após o diagnóstico, enviamos uma proposta com prazo e valor para cada etapa.' }
+],
+contact: { title: 'Vamos conversar sobre o seu projeto?', text: 'Conte o que você quer resolver. Respondemos com um primeiro caminho e uma estimativa de prazo.', email: 'E-mail' },
+footer: { rights: '© 2026 Eliora. Todos os direitos reservados.' }
+},
+en: {
+nav: { services: 'Services', why: 'Why Eliora', process: 'How we work', faq: 'FAQ', cta: 'Talk to us' },
+hero: {
+tagline: 'Technology with Purpose.',
+titleA: 'Technology and ',
+titleB: 'intelligence',
+titleC: ' for companies ready to evolve.',
+text: 'Eliora builds websites, SaaS products, AI agents and custom software that change how your business operates and grows.',
+primary: 'Talk to us',
+secondary: 'Explore our solutions'
+},
+flow: {
+label: 'AI agent example', note: 'illustrative',
+s1t: 'A customer sends a request', s1d: 'By WhatsApp, email or a form on your website.',
+s2t: 'The agent understands and acts', s2d: 'It classifies the request, checks your data and handles the simple cases.',
+s3t: 'Your team decides what matters', s3d: 'Only the cases that need human judgment reach them.'
+},
+journey: {
+cue: 'Scroll to see how it works',
+label: 'How an idea becomes a solution',
+beats: [
+{ n: '01', tag: 'Discovery', title: 'It all starts with a spark.', text: 'A conversation, a real problem and the data on the table. That is where the path comes from.' },
+{ n: '02', tag: 'Prototype', title: 'Intelligence gives it shape.', text: 'Ideas become agents, workflows and screens you can test right away.' },
+{ n: '03', tag: 'Deployment', title: 'Structure holds it up.', text: 'Integrated, secure systems, ready for everyday use.' },
+{ n: '04', tag: 'Evolution', title: 'And the business evolves.', text: 'Measured results, continuous adjustments and the next step always in sight.' }
+]
+},
+ticker: ['Websites', 'SaaS', 'AI consulting', 'AI agents', 'Business automation', 'Digital transformation', 'Custom software', 'API integrations'],
+services: {
+title: 'Solutions to build, automate and evolve.',
+text: 'We work on one project or several at once. The same team handles strategy, design and code.',
+list: [
+{ tag: 'Digital presence', title: 'Website development', short: 'Fast, clear and easy to update', text: 'Corporate sites, landing pages and online stores that present your company well and lead visitors to act.', items: ['Design and copy aligned with your brand', 'Performance and SEO from day one', 'AI assistance on the site itself, when it makes sense'] },
+{ tag: 'Product', title: 'SaaS development', short: 'Software products ready to scale', text: 'From prototype to a live product, we build platforms that grow along with your customer base.', items: ['Accounts, plans and recurring billing', 'Admin dashboard and usage metrics', 'Architecture prepared to scale'] },
+{ tag: 'Strategy', title: 'AI consulting', short: 'Where AI delivers results for your business', text: 'We map your processes, point out the best opportunities and define a realistic adoption plan.', items: ['Process and data assessment', 'Roadmap of prioritized projects', 'Team training and usage guidelines'] },
+{ tag: 'Automation', title: 'AI agents and automation', short: 'Routines that run on their own', text: 'Agents and automated workflows take over repetitive tasks so your team can focus on decisions.', items: ['Support, sales and operations', 'Integration with the systems you already use', 'Human oversight at critical points'] },
+{ tag: 'Change', title: 'Digital transformation', short: 'Processes, people and technology aligned', text: 'We guide your company through modernization, step by step, with results you can measure.', items: ['Digitizing manual processes', 'System migration and integration', 'Support for team adoption'] },
+{ tag: 'Tailor-made', title: 'Custom software', short: 'Systems built for your operation', text: 'When no off-the-shelf tool fits, we design and build the right system for your case.', items: ['Internal systems and portals', 'APIs and integrations', 'Ongoing maintenance and evolution'] }
+]
+},
+why: {
+eyebrow: 'Why Eliora',
+title: 'We build digital experiences that mean something.',
+list: [
+{ title: 'Strategy before code', text: 'We start by understanding your business, so we build only what delivers results.' },
+{ title: 'Built to grow', text: 'Architecture designed to scale along with your operation.' },
+{ title: 'AI applied with judgment', text: 'We use AI where it solves a real problem, with protected data and human oversight.' },
+{ title: 'Long-term partnership', text: 'We stay by your side after the project goes live.' }
+]
+},
+process: {
+eyebrow: 'How we work',
+title: 'From first conversation to launch, in four steps.',
+text: 'Each step ends with a deliverable you can see and test before moving on.',
+list: [
+{ n: '01', title: 'Discovery', text: 'We talk with you and your team to understand the problem, the data available and what success looks like.' },
+{ n: '02', title: 'Prototype', text: 'We deliver a working version quickly, so you can test it before investing in the full project.' },
+{ n: '03', title: 'Deployment', text: 'We go live, integrate with your systems and train the people who will use it every day.' },
+{ n: '04', title: 'Evolution', text: 'We track results, fix what needs fixing and propose the next steps.' }
+]
+},
+faqTitle: 'Questions we always get.',
+faqText: "Can't find yours? Write to us.",
+faqList: [
+{ q: 'Do I need to understand AI to work with you?', a: 'No. You bring the business problem and we turn it into a solution. We explain every decision in plain language.' },
+{ q: 'Can I hire just one of the services?', a: 'Yes. Many clients start with a website or a short consulting engagement and move on to other areas later.' },
+{ q: 'What happens to my company\'s data?', a: 'Together with you, we define which data goes into each solution, who can access it and where it is stored, in line with applicable data protection laws.' },
+{ q: 'How long does a project take?', a: 'It depends on the scope. After discovery, we send a proposal with timeline and price for each stage.' }
+],
+contact: { title: 'Shall we talk about your project?', text: 'Tell us what you want to solve. We reply with a first path forward and an estimated timeline.', email: 'Email' },
+footer: { rights: '© 2026 Eliora. All rights reserved.' }
+}
+};
+
+
+const getKey = (o, key) => key.split('.').reduce((a, k) => (a == null ? a : a[k]), o);
+function applyLang(lang) {
+  const t = COPY[lang] || COPY.pt;
+  document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+  document.title = META[lang].title;
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', META[lang].desc);
+  document.querySelectorAll('[data-i]').forEach((el) => {
+    const v = getKey(t, el.getAttribute('data-i'));
+    if (typeof v === 'string' && el.textContent !== v) el.textContent = v;
+  });
+  document.querySelectorAll('[data-i-aria]').forEach((el) => {
+    const v = getKey(t, el.getAttribute('data-i-aria'));
+    if (typeof v === 'string') el.setAttribute('aria-label', v);
+  });
+  document.querySelectorAll('.lang[data-lang]').forEach((b) => {
+    const on = b.getAttribute('data-lang') === lang;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+}
+class App {
+constructor() { this.state = { lang: 'pt' }; }
+setState(o) { Object.assign(this.state, o); this.componentDidUpdate(); }
+componentDidMount() {
+let lang = null;
+try { lang = localStorage.getItem('eliora-lang'); } catch (e) {}
+if (lang !== 'pt' && lang !== 'en') {
+const nav = (typeof navigator !== 'undefined' && navigator.language) || 'pt';
+lang = nav.toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en';
+}
+if (lang !== this.state.lang) this.setState({ lang });
+this.initJourney();
+this.initJump();
+this.initNav();
+}
+/* Links para uma seção distante: a tela escurece, pula direto e volta, sem rolar pela jornada. */
+initJump() {
+const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+let busy = false;
+const jumpTo = (target) => {
+const root = document.documentElement, body = document.body;
+const prevR = root.style.scrollBehavior, prevB = body.style.scrollBehavior;
+root.style.scrollBehavior = 'auto';
+body.style.scrollBehavior = 'auto';
+target.scrollIntoView();
+root.style.scrollBehavior = prevR;
+body.style.scrollBehavior = prevB;
+};
+this.jClick = (e) => {
+if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+const a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+if (!a) return;
+const mm = document.querySelector('.mmenu');
+if (mm && mm.open) mm.open = false;
+const id = (a.getAttribute('href') || '').slice(1);
+const target = id ? document.getElementById(id) : null;
+if (!target) return;
+const far = Math.abs(target.getBoundingClientRect().top) > window.innerHeight * 1.5;
+if (!far) return;
+e.preventDefault();
+if (busy) return;
+const fade = document.getElementById('jfade');
+if (rm.matches || !fade) { jumpTo(target); return; }
+busy = true;
+fade.classList.add('on');
+setTimeout(() => {
+jumpTo(target);
+requestAnimationFrame(() => {
+fade.classList.remove('on');
+setTimeout(() => { busy = false; }, 300);
+});
+}, 280);
+};
+document.addEventListener('click', this.jClick);
+}
+/* No celular o menu esconde ao rolar para baixo e volta ao rolar para cima, para não cobrir a jornada. */
+initNav() {
+const nav = document.querySelector('.nav');
+const topo = document.getElementById('topo');
+if (!nav || !topo) return;
+const mq = window.matchMedia('(max-width: 760px)');
+const getY = () => 66 - topo.getBoundingClientRect().top;
+let lastY = getY(), hidden = false;
+this.jNavScroll = () => {
+const y = getY();
+if (!mq.matches || y < 120) { if (hidden) { nav.classList.remove('hide'); hidden = false; } lastY = y; return; }
+const d = y - lastY;
+if (Math.abs(d) < 8) return;
+lastY = y;
+if (d > 0 && !hidden) { nav.classList.add('hide'); hidden = true; const mm = document.querySelector('.mmenu'); if (mm) mm.open = false; }
+else if (d < 0 && hidden) { nav.classList.remove('hide'); hidden = false; }
+};
+window.addEventListener('scroll', this.jNavScroll, { passive: true, capture: true });
+}
+componentDidUpdate() {
+applyLang(this.state.lang);
+if (this.jRefresh) this.jRefresh();
+}
+componentWillUnmount() {
+if (this.jTeardown) this.jTeardown();
+if (this.jClick) document.removeEventListener('click', this.jClick);
+if (this.jNavScroll) window.removeEventListener('scroll', this.jNavScroll, true);
+}
+/* Jornada de rolagem: a posição na página (0 a 1) conduz uma cena desenhada em canvas e as 4 legendas. */
+initJourney() {
+const journey = document.getElementById('jornada');
+const stage = document.getElementById('jstage');
+const canvas = document.getElementById('jcanvas');
+const rail = document.getElementById('jrail');
+if (!journey || !stage || !canvas || !canvas.getContext) return;
+const ctx = canvas.getContext('2d');
+const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+const ss = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+const lerp = (a, b, t) => a + (b - a) * t;
+
+/* ---- dados da cena (fixos, sempre iguais) ---- */
+const N = 60;
+let seed = 11;
+const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+const nodes = [];
+for (let i = 0; i < N; i++) {
+const ca = rnd() * Math.PI * 2;
+const cr = 9 + Math.pow(rnd(), 0.8) * 34;
+const col = i % 10, row = Math.floor(i / 10);
+let ax, ay;
+if (i < 34) { const th = Math.PI * (i / 33); ax = Math.cos(th) * 30; ay = -Math.sin(th) * 30; }
+else if (i < 54) { const th = Math.PI * ((i - 34) / 19); ax = Math.cos(th) * 16; ay = -Math.sin(th) * 16; }
+else { ax = -30 + 60 * ((i - 54) / 5); ay = 14; }
+nodes.push({ ca, cr, sz: 0.7 + rnd() * 0.9, gx: (col - 4.5) * 5.4, gy: (row - 2.5) * 5.4, ax, ay: ay + 8 });
+}
+const dust = [];
+for (let i = 0; i < 30; i++) dust.push({ a: rnd() * Math.PI * 2, r: 40 + rnd() * 40, s: 0.3 + rnd() * 0.5 });
+const edgesA = [];
+for (let i = 0; i < N; i++) {
+if (i % 10 !== 9 && i + 1 < N) edgesA.push([i, i + 1]);
+if (i + 10 < N) edgesA.push([i, i + 10]);
+}
+const edgesB = [];
+for (let i = 0; i < 33; i++) edgesB.push([i, i + 1]);
+for (let i = 34; i < 53; i++) edgesB.push([i, i + 1]);
+for (let i = 54; i < 59; i++) edgesB.push([i, i + 1]);
+const px = new Array(N), py = new Array(N);
+
+const size = { w: 0, h: 0, dpr: 1 };
+const measure = () => {
+const r = canvas.getBoundingClientRect();
+size.w = r.width; size.h = r.height;
+size.dpr = Math.min(size.w < 760 ? 1.5 : 2, window.devicePixelRatio || 1);
+canvas.width = Math.max(1, Math.round(size.w * size.dpr));
+canvas.height = Math.max(1, Math.round(size.h * size.dpr));
+};
+
+/* ---- sprites de brilho: pré-desenhados uma vez, bem mais leves que gradientes e sombras a cada quadro ---- */
+const sprite = (r, stops) => {
+const c = document.createElement('canvas');
+c.width = c.height = r * 2;
+const g = c.getContext('2d');
+const gr = g.createRadialGradient(r, r, 0, r, r, r);
+for (let i = 0; i < stops.length; i++) gr.addColorStop(stops[i][0], stops[i][1]);
+g.fillStyle = gr;
+g.fillRect(0, 0, r * 2, r * 2);
+return c;
+};
+const goldS = sprite(64, [[0, 'rgba(255,227,168,0.55)'], [0.4, 'rgba(255,181,71,0.22)'], [1, 'rgba(255,181,71,0)']]);
+const violetS = sprite(64, [[0, 'rgba(91,76,220,0.2)'], [1, 'rgba(91,76,220,0)']]);
+const dotS = sprite(32, [[0, 'rgba(255,244,214,1)'], [0.22, 'rgba(255,236,196,0.95)'], [0.5, 'rgba(255,181,71,0.3)'], [1, 'rgba(255,181,71,0)']]);
+const blit = (s, x, y, r, a) => { ctx.globalAlpha = a; ctx.drawImage(s, x - r, y - r, r * 2, r * 2); };
+
+/* ---- desenho: depende só de p, então rolar para trás desfaz tudo ---- */
+const draw = (p) => {
+const W = size.w, H = size.h;
+if (!W || !H) return;
+ctx.setTransform(size.dpr, 0, 0, size.dpr, 0, 0);
+ctx.clearRect(0, 0, W, H);
+const wide = W >= 760;
+const cx = wide ? W * 0.64 : W * 0.5;
+const cy = wide ? H * 0.5 : H * 0.36;
+const u = Math.min(H * 0.95, W * (wide ? 0.62 : 1.05)) / 100;
+const spark = ss(0, 0.16, p), emerge = ss(0.2, 0.42, p), gridT = ss(0.5, 0.68, p), arcT = ss(0.76, 0.94, p);
+const aA = ss(0.28, 0.42, p) * (1 - ss(0.74, 0.84, p));
+const aB = ss(0.78, 0.95, p);
+const flare = ss(0.9, 1, p);
+const coreY = cy + 8 * u * arcT;
+
+ctx.globalCompositeOperation = 'lighter';
+/* halos: violeta ao fundo, dourado no centro */
+if (emerge > 0.01) blit(violetS, cx, cy, u * 62, emerge);
+const gr = u * (5 + spark * 9 + emerge * 14 + arcT * 8);
+blit(goldS, cx, coreY, gr * 1.6, 0.4 + 0.6 * spark);
+
+/* poeira de luz que converge para o centro */
+const dustA = (1 - ss(0.2, 0.42, p)) * 0.75;
+if (dustA > 0.01) {
+ctx.globalAlpha = dustA;
+ctx.fillStyle = 'rgb(255,227,168)';
+const pull = 1 - 0.88 * ss(0, 0.26, p);
+for (let i = 0; i < dust.length; i++) {
+const d = dust[i];
+const a = d.a + p * 0.6 * d.s;
+const sz = Math.max(1.5, u * 0.45 * d.s);
+ctx.fillRect(cx + Math.cos(a) * d.r * u * pull, cy + Math.sin(a) * d.r * u * pull * 0.7, sz, sz);
+}
+}
+ctx.globalAlpha = 1;
+
+/* posições dos nós: nuvem, depois grade, depois arcos do símbolo */
+const rot = p * 0.9 + 0.3 * Math.sin(p * 5);
+for (let i = 0; i < N; i++) {
+const n = nodes[i];
+const a = n.ca + rot * (1 - gridT);
+const clx = Math.cos(a) * n.cr * u * emerge;
+const cly = Math.sin(a) * n.cr * u * emerge * 0.8;
+const x1 = lerp(clx, n.gx * u, gridT), y1 = lerp(cly, n.gy * u, gridT);
+px[i] = cx + lerp(x1, n.ax * u, arcT);
+py[i] = cy + lerp(y1, n.ay * u, arcT);
+}
+
+/* ligações */
+if (aA > 0.01) {
+ctx.strokeStyle = 'rgba(255,200,120,' + (0.32 * aA) + ')';
+ctx.lineWidth = Math.max(1, u * 0.14);
+ctx.beginPath();
+for (let e = 0; e < edgesA.length; e++) { ctx.moveTo(px[edgesA[e][0]], py[edgesA[e][0]]); ctx.lineTo(px[edgesA[e][1]], py[edgesA[e][1]]); }
+ctx.stroke();
+/* pulsos de dados correndo pelas ligações */
+for (let k = 0; k < 10; k++) {
+const e = edgesA[(k * 13 + 3) % edgesA.length];
+const t = (p * 5 + k * 0.17) % 1;
+blit(dotS, lerp(px[e[0]], px[e[1]], t), lerp(py[e[0]], py[e[1]], t), u * 2.6, aA * Math.sin(Math.PI * t));
+}
+}
+if (aB > 0.01) {
+ctx.globalAlpha = 1;
+ctx.strokeStyle = 'rgba(255,227,168,' + (0.95 * aB) + ')';
+ctx.lineWidth = Math.max(2, u * 0.5);
+ctx.lineCap = 'round';
+ctx.beginPath();
+for (let e = 0; e < edgesB.length; e++) { ctx.moveTo(px[edgesB[e][0]], py[edgesB[e][0]]); ctx.lineTo(px[edgesB[e][1]], py[edgesB[e][1]]); }
+ctx.stroke();
+}
+
+/* nós */
+const nodeA = emerge * (1 - 0.75 * aB);
+if (nodeA > 0.01) {
+for (let i = 0; i < N; i++) blit(dotS, px[i], py[i], u * 0.55 * nodes[i].sz * (1 - 0.5 * aB) * 4.2, nodeA);
+}
+
+/* ponto central, o mesmo do símbolo da marca */
+const cr = u * (0.4 + spark * 1.3 + arcT * 0.3) * 4.2;
+blit(dotS, cx, coreY, cr, 1);
+blit(dotS, cx, coreY, cr * 0.6, 1);
+ctx.globalAlpha = 1;
+
+/* linha de horizonte no final */
+if (flare > 0.01) {
+const y = cy + 22 * u * arcT, wd = u * 90;
+const lg = ctx.createLinearGradient(cx - wd / 2, 0, cx + wd / 2, 0);
+lg.addColorStop(0, 'rgba(255,181,71,0)');
+lg.addColorStop(0.5, 'rgba(255,227,168,' + (0.7 * flare) + ')');
+lg.addColorStop(1, 'rgba(255,181,71,0)');
+ctx.fillStyle = lg;
+ctx.fillRect(cx - wd / 2, y - 1, wd, 2);
+}
+ctx.globalCompositeOperation = 'source-over';
+};
+
+/* ---- legendas: cada uma tem a sua faixa de rolagem ---- */
+let beatEls = null;
+const bands = [[0, 0.26], [0.26, 0.51], [0.51, 0.76], [0.76, 1]];
+const updateBeats = (p, force) => {
+const els = beatEls || (beatEls = journey.querySelectorAll('.beat'));
+for (let i = 0; i < els.length; i++) {
+const el = els[i];
+const link = el.querySelector('a');
+if (rm.matches) { if (link) link.tabIndex = 0; continue; }
+const b = bands[i] || [0, 1];
+const a0 = b[0], b1 = b[1];
+const f = Math.min(0.04, (b1 - a0) / 3);
+let inn = ss(a0, a0 + f, p), out = ss(b1 - f, b1, p);
+if (i === 0) inn = 1;
+if (i === els.length - 1) out = 0;
+const op = inn * (1 - out);
+const k = i === 0 ? 1 : clamp((p - a0) / Math.min(0.05, (b1 - a0) * 0.35), 0, 1);
+const key = op.toFixed(3) + '|' + k.toFixed(3) + '|' + out.toFixed(3);
+if (!force && el._k === key) continue;
+el._k = key;
+el.style.opacity = String(op);
+el.style.transform = 'translateY(' + ((1 - k) * 26 - out * 18).toFixed(1) + 'px)';
+if (link) { link.tabIndex = op > 0.5 ? 0 : -1; link.style.pointerEvents = op > 0.5 ? 'auto' : 'none'; }
+}
+};
+
+let target = 0, shown = 0, raf = null, last = 0, onScreen = true;
+const progress = () => {
+if (rm.matches) return 1;
+const r = journey.getBoundingClientRect();
+const range = r.height - stage.clientHeight;
+return range > 0 ? clamp(-r.top / range, 0, 1) : 1;
+};
+const paint = (p, force) => {
+draw(p);
+updateBeats(p, force);
+if (rail) {
+const v = p.toFixed(3);
+if (force || rail._v !== v) { rail._v = v; rail.style.transform = 'scaleY(' + p + ')'; }
+}
+};
+const tick = (now) => {
+const dt = Math.min(100, now - (last || now));
+last = now;
+shown += (target - shown) * (1 - Math.pow(1 - (window.innerWidth < 760 ? 0.28 : 0.16), dt / 16.667));
+if (Math.abs(target - shown) < 0.0005) { shown = target; raf = null; last = 0; }
+else { raf = requestAnimationFrame(tick); }
+paint(shown);
+};
+const onScroll = () => {
+target = progress();
+if (rm.matches) { shown = target; paint(shown); return; }
+if (raf === null && onScreen) raf = requestAnimationFrame(tick);
+};
+const onRm = () => { measure(); target = progress(); shown = target; paint(shown, true); };
+
+measure();
+target = shown = progress();
+paint(shown, true);
+
+window.addEventListener('scroll', onScroll, { passive: true, capture: true });
+window.addEventListener('resize', onResize);
+function onResize() { measure(); paint(shown, true); }
+let io = null, ro = null;
+if (window.IntersectionObserver) {
+io = new IntersectionObserver((es) => {
+onScreen = es[0].isIntersecting;
+if (onScreen && raf === null) onScroll();
+});
+io.observe(journey);
+}
+if (window.ResizeObserver) { ro = new ResizeObserver(onResize); ro.observe(stage); }
+if (rm.addEventListener) rm.addEventListener('change', onRm);
+
+this.jRefresh = () => { beatEls = null; paint(shown, true); };
+this.jTeardown = () => {
+window.removeEventListener('scroll', onScroll, true);
+window.removeEventListener('resize', onResize);
+if (io) io.disconnect();
+if (ro) ro.disconnect();
+if (rm.removeEventListener) rm.removeEventListener('change', onRm);
+if (raf !== null) cancelAnimationFrame(raf);
+};
+}
+setLang(lang) {
+this.setState({ lang });
+try { localStorage.setItem('eliora-lang', lang); } catch (e) {}
+}
+}
+
+const app = new App();
+document.querySelectorAll('.lang[data-lang]').forEach((b) => {
+  b.addEventListener('click', () => app.setLang(b.getAttribute('data-lang')));
+});
+app.componentDidMount();
+
+</script>
+</body>
+</html>
