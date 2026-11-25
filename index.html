@@ -85,7 +85,7 @@ details[open] .faq-a{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
 .cue{display:flex;flex-direction:column;align-items:center;gap:10px;font-family:'Sora',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#7C8199;text-align:center}
 .cue-line{width:1px;height:44px;background:#232A44;position:relative;overflow:hidden}
 .cue-line::after{content:"";position:absolute;left:0;right:0;height:40%;background:#FFB547;animation:flow 2s linear infinite}
-.journey{position:relative;height:520vh;background:#070912}
+.journey{position:relative;height:310vh;background:#070912}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:radial-gradient(55% 60% at 66% 50%,rgba(255,181,71,.07),rgba(255,181,71,0) 70%),#070912}
 .jcanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .scrim{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 60% 50%,rgba(7,9,18,0) 40%,rgba(7,9,18,.6) 100%)}
@@ -93,11 +93,14 @@ details[open] .faq-a{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
 .jcopy-in{width:100%;max-width:1200px;margin:0 auto;box-sizing:border-box}
 .beats{display:grid;max-width:540px}
 .beat{grid-area:1/1;position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:18px;opacity:0;text-shadow:0 1px 2px rgba(7,9,18,.95),0 3px 14px rgba(7,9,18,.8),0 10px 44px rgba(7,9,18,.8)}
-.beat:first-child{opacity:1}
+.beat{transition:opacity .6s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.beat[data-s="on"]{opacity:1;transform:none}
+.beat[data-s="pre"]{opacity:0;transform:translateY(26px)}
+.beat[data-s="post"]{opacity:0;transform:translateY(-20px)}
 .beat::before{content:"";position:absolute;inset:-14% -12%;z-index:-1;background:radial-gradient(ellipse 74% 62% at 40% 50%,rgba(7,9,18,.62),rgba(7,9,18,0) 76%)}
 .beat a{pointer-events:none;text-shadow:none}
 .rail{position:absolute;right:max(20px,env(safe-area-inset-right,0px));top:50%;width:2px;height:160px;margin-top:-80px;background:#232A44;border-radius:2px;overflow:hidden}
-.rail-fill{width:100%;height:100%;background:linear-gradient(180deg,#FFE3A8,#FFB547);transform:scaleY(0);transform-origin:top}
+.rail-fill{width:100%;height:100%;background:linear-gradient(180deg,#FFE3A8,#FFB547);transform:scaleY(0);transform-origin:top;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 @media (max-width:760px){
 .jcopy{align-items:flex-end;padding-bottom:9vh}
 .beats{max-width:none}
@@ -218,7 +221,7 @@ details[open] .faq-a{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
 .orb-a{background:radial-gradient(circle,rgba(255,181,71,.24),rgba(255,181,71,0) 70%)}
 .orb-b{background:radial-gradient(circle,rgba(91,76,220,.34),rgba(91,76,220,0) 70%)}
 .float-card,.shine,.cta-box{animation:none}
-.journey{height:400vh}
+.journey{height:280vh}
 .beat{text-shadow:0 1px 2px rgba(7,9,18,.95),0 4px 16px rgba(7,9,18,.85)}
 }
 @media (prefers-reduced-motion:reduce){
@@ -1114,7 +1117,8 @@ const dotS = sprite(32, [[0, 'rgba(255,244,214,1)'], [0.22, 'rgba(255,236,196,0.
 const blit = (s, x, y, r, a) => { ctx.globalAlpha = a; ctx.drawImage(s, x - r, y - r, r * 2, r * 2); };
 
 /* ---- desenho: depende só de p, então rolar para trás desfaz tudo ---- */
-const draw = (p) => {
+const draw = (p, tm) => {
+tm = tm || 0;
 const W = size.w, H = size.h;
 if (!W || !H) return;
 ctx.setTransform(size.dpr, 0, 0, size.dpr, 0, 0);
@@ -1151,7 +1155,7 @@ ctx.fillRect(cx + Math.cos(a) * d.r * u * pull, cy + Math.sin(a) * d.r * u * pul
 ctx.globalAlpha = 1;
 
 /* posições dos nós: nuvem, depois grade, depois arcos do símbolo */
-const rot = p * 0.9 + 0.3 * Math.sin(p * 5);
+const rot = p * 0.9 + 0.3 * Math.sin(p * 5) + tm * 0.00006;
 for (let i = 0; i < N; i++) {
 const n = nodes[i];
 const a = n.ca + rot * (1 - gridT);
@@ -1172,7 +1176,7 @@ ctx.stroke();
 /* pulsos de dados correndo pelas ligações */
 for (let k = 0; k < 10; k++) {
 const e = edgesA[(k * 13 + 3) % edgesA.length];
-const t = (p * 5 + k * 0.17) % 1;
+const t = (p * 5 + tm * 0.00035 + k * 0.17) % 1;
 blit(dotS, lerp(px[e[0]], px[e[1]], t), lerp(py[e[0]], py[e[1]], t), u * 2.6, aA * Math.sin(Math.PI * t));
 }
 }
@@ -1193,7 +1197,7 @@ for (let i = 0; i < N; i++) blit(dotS, px[i], py[i], u * 0.55 * nodes[i].sz * (1
 }
 
 /* ponto central, o mesmo do símbolo da marca */
-const cr = u * (0.4 + spark * 1.3 + arcT * 0.3) * 4.2;
+const cr = u * (0.4 + spark * 1.3 + arcT * 0.3) * 4.2 * (1 + 0.05 * Math.sin(tm * 0.004));
 blit(dotS, cx, coreY, cr, 1);
 blit(dotS, cx, coreY, cr * 0.6, 1);
 ctx.globalAlpha = 1;
@@ -1211,149 +1215,183 @@ ctx.fillRect(cx - wd / 2, y - 1, wd, 2);
 ctx.globalCompositeOperation = 'source-over';
 };
 
-/* ---- legendas: cada uma tem a sua faixa de rolagem ---- */
-let beatEls = null;
-const bands = [[0, 0.26], [0.26, 0.51], [0.51, 0.76], [0.76, 1]];
-const updateBeats = (p, force) => {
-const els = beatEls || (beatEls = journey.querySelectorAll('.beat'));
+/* ---- etapas: cada legenda tem a sua animação, que roda sozinha do começo ao fim ---- */
+/* STEP_P = ponto da cena (0 a 1) onde cada etapa termina: faísca, rede, estrutura, símbolo */
+const STEP_P = [0.2, 0.44, 0.7, 1];
+const NSTEP = STEP_P.length;
+const VMAX = 0.24;
+const isMobile = () => window.innerWidth < 760;
+let beats = null;
+let step = -1, pScene = 0, vel = 0, onScreen = true, raf = null, lastT = 0, frame = 0;
+let touching = false, locked = false, lockTimer = null, aligning = false, alignRaf = null, settleTimer = null;
+const sy = () => window.pageYOffset || document.documentElement.scrollTop || 0;
+const setSmooth = (v) => { document.documentElement.style.scrollBehavior = v; document.body.style.scrollBehavior = v; };
+
+/* legendas e trilho acompanham a cena: a legenda entra quando a animação da etapa está quase completa */
+const showBeats = (p) => {
+const els = beats || (beats = journey.querySelectorAll('.beat'));
+let cur = -1;
+if (step >= 0) for (let i = 0; i < NSTEP; i++) if (p >= STEP_P[i] - 0.08) cur = i;
 for (let i = 0; i < els.length; i++) {
 const el = els[i];
-const link = el.querySelector('a');
-if (rm.matches) { if (link) link.tabIndex = 0; continue; }
-const b = bands[i] || [0, 1];
-const a0 = b[0], b1 = b[1];
-const f = Math.min(0.04, (b1 - a0) / 3);
-let inn = ss(a0, a0 + f, p), out = ss(b1 - f, b1, p);
-if (i === 0) inn = 1;
-if (i === els.length - 1) out = 0;
-const op = inn * (1 - out);
-const k = i === 0 ? 1 : clamp((p - a0) / Math.min(0.05, (b1 - a0) * 0.35), 0, 1);
-const key = op.toFixed(3) + '|' + k.toFixed(3) + '|' + out.toFixed(3);
-if (!force && el._k === key) continue;
-el._k = key;
-el.style.opacity = String(op);
-el.style.transform = 'translateY(' + ((1 - k) * 26 - out * 18).toFixed(1) + 'px)';
-if (link) { link.tabIndex = op > 0.5 ? 0 : -1; link.style.pointerEvents = op > 0.5 ? 'auto' : 'none'; }
+const st = i === cur ? 'on' : (i > cur ? 'pre' : 'post');
+if (el._s === st) continue;
+el._s = st;
+el.setAttribute('data-s', st);
+const a = el.querySelector('a');
+if (a) { a.tabIndex = st === 'on' ? 0 : -1; a.style.pointerEvents = st === 'on' ? 'auto' : 'none'; }
+}
+if (rail) {
+const v = String((cur + 1) / NSTEP);
+if (rail._v !== v) { rail._v = v; rail.style.transform = 'scaleY(' + v + ')'; }
 }
 };
 
-let target = 0, shown = 0, raf = null, last = 0, onScreen = true;
-const progress = () => {
-if (rm.matches) return 1;
-const r = journey.getBoundingClientRect();
-const range = r.height - stage.clientHeight;
-return range > 0 ? clamp(-r.top / range, 0, 1) : 1;
+/* trava a rolagem enquanto a animação da etapa roda, para ela terminar antes da próxima */
+const startLock = () => {
+if (rm.matches) return;
+locked = true;
+if (lockTimer !== null) clearTimeout(lockTimer);
+lockTimer = setTimeout(() => { locked = false; lockTimer = null; }, 2800);
 };
-const paint = (p, force) => {
-draw(p);
-updateBeats(p, force);
-if (rail) {
-const v = p.toFixed(3);
-if (force || rail._v !== v) { rail._v = v; rail.style.transform = 'scaleY(' + p + ')'; }
+const maybeUnlock = () => {
+if (!locked || aligning) return;
+const tgt = step < 0 ? 0 : STEP_P[step];
+if (Math.abs(tgt - pScene) < 0.012 && Math.abs(vel) < 0.03) {
+locked = false;
+if (lockTimer !== null) { clearTimeout(lockTimer); lockTimer = null; }
 }
 };
-const tick = (now) => {
-const dt = Math.min(100, now - (last || now));
-last = now;
-shown += (target - shown) * (1 - Math.pow(1 - (window.innerWidth < 760 ? 0.28 : 0.16), dt / 16.667));
-if (Math.abs(target - shown) < 0.0005) { shown = target; raf = null; last = 0; }
-else { raf = requestAnimationFrame(tick); }
-paint(shown);
-};
-/* ---- encaixe: ao parar de rolar dentro da jornada, a página segue sozinha até a próxima legenda ---- */
-const stops = [0, 0.385, 0.635, 0.88, 1];
-let snapTimer = null, snapRaf = null, touching = false, auto = false, dir = 1;
-const sy = () => window.pageYOffset || document.documentElement.scrollTop || 0;
-let lastSY = sy();
-const setSmooth = (v) => { document.documentElement.style.scrollBehavior = v; document.body.style.scrollBehavior = v; };
-const endSnap = () => {
-auto = false;
-if (snapRaf !== null) { cancelAnimationFrame(snapRaf); snapRaf = null; }
-setSmooth('');
-lastSY = sy();
-};
-const animateTo = (y) => {
-const from = sy(), dist = y - from;
-if (Math.abs(dist) < 2) return;
-const dur = clamp(Math.abs(dist) * 0.8, 500, 1100);
+const block = (e) => { if (locked && e.cancelable) e.preventDefault(); };
+const KEYS = [' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'End', 'Home'];
+const onKey = (e) => { if (locked && KEYS.indexOf(e.key) >= 0) e.preventDefault(); };
+
+/* leva a rolagem até a posição da etapa, com movimento suave */
+const stepY = (n) => sy() + journey.getBoundingClientRect().top + (n / (NSTEP - 1)) * (journey.offsetHeight - stage.clientHeight);
+const alignTo = (n) => {
+const to = stepY(n), from = sy(), dist = to - from;
+if (alignRaf !== null) { cancelAnimationFrame(alignRaf); alignRaf = null; }
+if (Math.abs(dist) < 2) { aligning = false; return; }
+const dur = clamp(Math.abs(dist) * 0.8, 450, 1000);
 const t0 = performance.now();
 setSmooth('auto');
-auto = true;
-const step = (now) => {
+aligning = true;
+const stepFn = (now) => {
 const k = clamp((now - t0) / dur, 0, 1);
 const e = k < 0.5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
 window.scrollTo(0, from + dist * e);
-if (k < 1 && auto) snapRaf = requestAnimationFrame(step); else endSnap();
+if (k < 1) alignRaf = requestAnimationFrame(stepFn);
+else { alignRaf = null; aligning = false; setSmooth(''); }
 };
-snapRaf = requestAnimationFrame(step);
+alignRaf = requestAnimationFrame(stepFn);
 };
-const snapNow = () => {
-snapTimer = null;
-if (rm.matches || touching || auto) return;
-const rg = journey.offsetHeight - stage.clientHeight;
-if (rg <= 0) return;
+
+/* qual etapa a rolagem pede agora (com folga para não oscilar) */
+const wantStep = () => {
+const r = journey.getBoundingClientRect(), vh = stage.clientHeight, rg = journey.offsetHeight - vh;
+if (rg <= 0) return step;
+if (r.top > vh * 0.55) return -1;
+const s = clamp((-r.top / rg) * (NSTEP - 1), 0, NSTEP - 1);
+if (step < 0) return 0;
+if (s > step + 0.15 && step < NSTEP - 1) return step + 1;
+if (s < step - 0.15 && step > 0) return step - 1;
+return step;
+};
+const goStep = (n) => {
+if (n === step) return;
+step = n;
+if (n >= 0) { startLock(); alignTo(n); }
+kick();
+};
+const settle = () => {
+settleTimer = null;
+if (rm.matches || touching || locked || aligning) return;
+const w = wantStep();
+if (w !== step) { goStep(w); return; }
+if (step >= 0) {
 const r = journey.getBoundingClientRect();
-const p = clamp(-r.top / rg, 0, 1);
-if (p <= 0.004 || p >= 0.996) return;
-for (let i = 0; i < stops.length; i++) if (Math.abs(stops[i] - p) < 0.02) return;
-let to = null;
-if (dir > 0) { for (let i = 0; i < stops.length; i++) if (stops[i] > p) { to = stops[i]; break; } }
-else { for (let i = stops.length - 1; i >= 0; i--) if (stops[i] < p) { to = stops[i]; break; } }
-if (to === null) return;
-animateTo(sy() + r.top + to * rg);
-};
-const armSnap = () => {
-if (snapTimer !== null) clearTimeout(snapTimer);
-snapTimer = setTimeout(snapNow, 170);
-};
-const onUser = (e) => {
-if (e.type === 'touchstart') touching = true;
-if (auto) endSnap();
-if (snapTimer !== null) { clearTimeout(snapTimer); snapTimer = null; }
-};
-const onTouchEnd = () => { touching = false; if (!rm.matches) armSnap(); };
-const onScroll = () => {
-target = progress();
-if (rm.matches) { shown = target; paint(shown); return; }
-if (!auto) {
-const y = sy();
-if (y !== lastSY) { dir = y > lastSY ? 1 : -1; lastSY = y; }
-armSnap();
+const rg = journey.offsetHeight - stage.clientHeight;
+const pinned = r.top <= 0 && r.bottom >= stage.clientHeight;
+if (pinned && -r.top <= rg && Math.abs(stepY(step) - sy()) > 4) alignTo(step);
 }
-if (raf === null && onScreen) raf = requestAnimationFrame(tick);
 };
-const onRm = () => { measure(); target = progress(); shown = target; paint(shown, true); };
+const armSettle = () => {
+if (settleTimer !== null) clearTimeout(settleTimer);
+settleTimer = setTimeout(settle, 140);
+};
+
+/* laço da cena: a animação anda com velocidade limitada e termina sempre, mesmo se a pessoa rolar rápido */
+const loop = (now) => {
+raf = null;
+if (!onScreen) { lastT = 0; return; }
+const dt = Math.min(0.05, (now - (lastT || now)) / 1000);
+lastT = now;
+const tgt = step < 0 ? 0 : STEP_P[step];
+const desired = clamp((tgt - pScene) * 5, -VMAX, VMAX);
+vel += (desired - vel) * Math.min(1, dt * 10);
+pScene += vel * dt;
+if (Math.abs(tgt - pScene) < 0.0008 && Math.abs(vel) < 0.01) { pScene = tgt; vel = 0; }
+frame++;
+if (!(isMobile() && frame % 2)) draw(pScene, now);
+showBeats(pScene);
+maybeUnlock();
+raf = requestAnimationFrame(loop);
+};
+const kick = () => { if (raf === null && onScreen) { lastT = 0; raf = requestAnimationFrame(loop); } };
+
+/* movimento reduzido: sem etapas, só a imagem final */
+const showStatic = () => { step = NSTEP - 1; pScene = STEP_P[NSTEP - 1]; draw(pScene, 0); showBeats(pScene); };
+
+const onScroll = () => {
+if (rm.matches || locked || aligning) return;
+armSettle();
+};
+const onTouchStart = () => { touching = true; };
+const onTouchEnd = () => { touching = false; if (!rm.matches) armSettle(); };
+const onResize = () => { measure(); if (rm.matches) showStatic(); else draw(pScene, performance.now()); };
+const onRm = () => {
+measure();
+if (rm.matches) { locked = false; showStatic(); }
+else { step = -1; pScene = 0; vel = 0; draw(0, 0); showBeats(0); armSettle(); }
+};
 
 measure();
-target = shown = progress();
-paint(shown, true);
+if (rm.matches) showStatic();
+else { draw(0, 0); showBeats(0); armSettle(); }
 
 window.addEventListener('scroll', onScroll, { passive: true, capture: true });
-['wheel', 'touchstart', 'mousedown', 'keydown'].forEach((ev) => window.addEventListener(ev, onUser, { passive: true }));
+window.addEventListener('wheel', block, { passive: false });
+window.addEventListener('touchmove', block, { passive: false });
+window.addEventListener('keydown', onKey);
+window.addEventListener('touchstart', onTouchStart, { passive: true });
 window.addEventListener('touchend', onTouchEnd, { passive: true });
 window.addEventListener('touchcancel', onTouchEnd, { passive: true });
 window.addEventListener('resize', onResize);
-function onResize() { measure(); paint(shown, true); }
 let io = null, ro = null;
 if (window.IntersectionObserver) {
 io = new IntersectionObserver((es) => {
 onScreen = es[0].isIntersecting;
-if (onScreen && raf === null) onScroll();
+if (onScreen) kick();
 });
 io.observe(journey);
 }
 if (window.ResizeObserver) { ro = new ResizeObserver(onResize); ro.observe(stage); }
 if (rm.addEventListener) rm.addEventListener('change', onRm);
 
-this.jRefresh = () => { beatEls = null; paint(shown, true); };
+this.jRefresh = () => { beats = null; if (rm.matches) showStatic(); else { draw(pScene, performance.now()); showBeats(pScene); } };
 this.jTeardown = () => {
 window.removeEventListener('scroll', onScroll, true);
-['wheel', 'touchstart', 'mousedown', 'keydown'].forEach((ev) => window.removeEventListener(ev, onUser));
+window.removeEventListener('wheel', block);
+window.removeEventListener('touchmove', block);
+window.removeEventListener('keydown', onKey);
+window.removeEventListener('touchstart', onTouchStart);
 window.removeEventListener('touchend', onTouchEnd);
 window.removeEventListener('touchcancel', onTouchEnd);
-if (snapTimer !== null) clearTimeout(snapTimer);
-endSnap();
 window.removeEventListener('resize', onResize);
+if (settleTimer !== null) clearTimeout(settleTimer);
+if (lockTimer !== null) clearTimeout(lockTimer);
+if (alignRaf !== null) cancelAnimationFrame(alignRaf);
+setSmooth('');
 if (io) io.disconnect();
 if (ro) ro.disconnect();
 if (rm.removeEventListener) rm.removeEventListener('change', onRm);
