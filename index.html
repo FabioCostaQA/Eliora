@@ -153,11 +153,13 @@ details[open] .faq-a{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
 .track::after{content:"";position:absolute;left:0;right:0;height:34%;background:linear-gradient(180deg,transparent,#FFB547,transparent);animation:flow 2.4s linear infinite}
 
 /* ---------- faixa rolante ---------- */
-.ticker-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.ticker{display:flex;width:max-content;animation:ticker 40s linear infinite}
-.ticker-wrap:hover .ticker{animation-play-state:paused}
-.tick{display:flex;align-items:center;gap:28px;padding-right:28px;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em;color:#7C8199;white-space:nowrap;transition:color .25s}
-.tick:hover{color:#FFFFFF}
+.ticker-wrap{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.ticker-wrap::-webkit-scrollbar{display:none}
+.ticker-wrap.drag{cursor:grabbing;user-select:none}
+.ticker{display:flex;width:max-content}
+.tick{text-decoration:none;display:flex;align-items:center;gap:28px;padding-right:28px;font-family:'Sora',sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em;color:#7C8199;white-space:nowrap;transition:color .25s}
+.tick:hover,.tick:focus-visible{color:#FFFFFF;outline:none}
+.tick:hover span:first-child,.tick:focus-visible span:first-child{text-decoration:underline;text-decoration-color:#FFB547;text-underline-offset:6px;text-decoration-thickness:2px}
 .tick-dot{width:6px;height:6px;border-radius:50%;background:#FFB547}
 
 /* ---------- cards ---------- */
@@ -221,7 +223,7 @@ details[open] .faq-a{animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
 .orb-a{background:radial-gradient(circle,rgba(255,181,71,.24),rgba(255,181,71,0) 70%)}
 .orb-b{background:radial-gradient(circle,rgba(91,76,220,.34),rgba(91,76,220,0) 70%)}
 .float-card,.shine,.cta-box{animation:none}
-.journey{height:280vh}
+.journey{height:280vh;height:calc(2.8 * 100svh)}
 .beat{text-shadow:0 1px 2px rgba(7,9,18,.95),0 4px 16px rgba(7,9,18,.85)}
 }
 @media (prefers-reduced-motion:reduce){
@@ -439,37 +441,37 @@ html,body{scroll-behavior:auto}
 <div class="ticker-wrap">
 <div class="ticker">
 
-<div class="tick"><span><span data-i="ticker.0">Sites</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-0" draggable="false"><span><span data-i="ticker.0">Sites</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.1">SaaS</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-1" draggable="false"><span><span data-i="ticker.1">SaaS</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.2">Consultoria em IA</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-2" draggable="false"><span><span data-i="ticker.2">Consultoria em IA</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.3">Agentes de IA</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-3" draggable="false"><span><span data-i="ticker.3">Agentes de IA</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.4">Automação de negócios</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-3" draggable="false"><span><span data-i="ticker.4">Automação de negócios</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.5">Transformação digital</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-4" draggable="false"><span><span data-i="ticker.5">Transformação digital</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.6">Software sob medida</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-5" draggable="false"><span><span data-i="ticker.6">Software sob medida</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.7">Integrações via API</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-3" draggable="false"><span><span data-i="ticker.7">Integrações via API</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.0">Sites</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-0" draggable="false"><span><span data-i="ticker.0">Sites</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.1">SaaS</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-1" draggable="false"><span><span data-i="ticker.1">SaaS</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.2">Consultoria em IA</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-2" draggable="false"><span><span data-i="ticker.2">Consultoria em IA</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.3">Agentes de IA</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-3" draggable="false"><span><span data-i="ticker.3">Agentes de IA</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.4">Automação de negócios</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-3" draggable="false"><span><span data-i="ticker.4">Automação de negócios</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.5">Transformação digital</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-4" draggable="false"><span><span data-i="ticker.5">Transformação digital</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.6">Software sob medida</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-5" draggable="false"><span><span data-i="ticker.6">Software sob medida</span></span><span class="tick-dot"></span></a>
 
-<div class="tick"><span><span data-i="ticker.7">Integrações via API</span></span><span class="tick-dot"></span></div>
+<a class="tick" href="#svc-3" draggable="false"><span><span data-i="ticker.7">Integrações via API</span></span><span class="tick-dot"></span></a>
 
 </div>
 </div>
@@ -485,7 +487,7 @@ html,body{scroll-behavior:auto}
 
 <div style="display:flex;flex-wrap:wrap;gap:20px">
 
-<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div id="svc-0" class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
 <div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.0.tag">Presença digital</span></div>
 <h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.0.title">Desenvolvimento de sites</span></h3>
 <p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.0.text">Sites institucionais, landing pages e lojas que apresentam bem a sua empresa e levam o visitante a agir.</span></p>
@@ -510,7 +512,7 @@ html,body{scroll-behavior:auto}
 </div>
 </div>
 
-<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div id="svc-1" class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
 <div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.1.tag">Produto</span></div>
 <h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.1.title">Desenvolvimento de SaaS</span></h3>
 <p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.1.text">Do protótipo ao produto em operação, construímos plataformas que crescem junto com a sua base de clientes.</span></p>
@@ -535,7 +537,7 @@ html,body{scroll-behavior:auto}
 </div>
 </div>
 
-<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div id="svc-2" class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
 <div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.2.tag">Estratégia</span></div>
 <h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.2.title">Consultoria em IA</span></h3>
 <p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.2.text">Mapeamos processos, apontamos as melhores oportunidades e definimos um plano realista de adoção.</span></p>
@@ -560,7 +562,7 @@ html,body{scroll-behavior:auto}
 </div>
 </div>
 
-<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div id="svc-3" class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
 <div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.3.tag">Automação</span></div>
 <h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.3.title">Agentes de IA e automação</span></h3>
 <p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.3.text">Agentes e fluxos automatizados que assumem tarefas repetitivas e deixam sua equipe no que exige decisão.</span></p>
@@ -585,7 +587,7 @@ html,body{scroll-behavior:auto}
 </div>
 </div>
 
-<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div id="svc-4" class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
 <div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.4.tag">Mudança</span></div>
 <h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.4.title">Transformação digital</span></h3>
 <p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.4.text">Acompanhamos a modernização da empresa, passo a passo, com entregas que você consegue medir.</span></p>
@@ -610,7 +612,7 @@ html,body{scroll-behavior:auto}
 </div>
 </div>
 
-<div class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
+<div id="svc-5" class="card reveal" style="flex:1 1 340px;min-width:0;box-sizing:border-box;border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:18px">
 <div style="font-family:'Sora',sans-serif;font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#FFB547"><span data-i="services.list.5.tag">Sob medida</span></div>
 <h3 style="margin:0;font-family:'Sora',sans-serif;font-weight:600;font-size:25px;line-height:1.2;letter-spacing:-0.02em"><span data-i="services.list.5.title">Software personalizado</span></h3>
 <p style="margin:0;font-size:16px;line-height:1.65;color:#A7AABB"><span data-i="services.list.5.text">Quando nenhuma ferramenta pronta resolve, desenhamos e construímos o sistema certo para o seu caso.</span></p>
@@ -979,6 +981,7 @@ if (lang !== this.state.lang) this.setState({ lang });
 this.initJourney();
 this.initJump();
 this.initNav();
+this.initTicker();
 }
 /* Links para uma seção distante: a tela escurece, pula direto e volta, sem rolar pela jornada. */
 initJump() {
@@ -1020,6 +1023,60 @@ setTimeout(() => { busy = false; }, 300);
 };
 document.addEventListener('click', this.jClick);
 }
+/* Faixa de serviços: anda sozinha, mas pode ser rolada com o dedo ou arrastada com o mouse; cada nome é um link. */
+initTicker() {
+const wrap = document.querySelector('.ticker-wrap');
+if (!wrap) return;
+const rm = window.matchMedia('(prefers-reduced-motion: reduce)');
+let pause = 0, last = 0, raf = null, vis = true, acc = 0;
+let down = false, moved = false, sx = 0, sl = 0;
+const SPEED = 38;
+const half = () => wrap.scrollWidth / 2;
+const hold = (ms) => { pause = performance.now() + ms; };
+const loop = (now) => {
+raf = null;
+if (!vis) { last = 0; return; }
+const dt = Math.min(0.05, (now - (last || now)) / 1000);
+last = now;
+if (!rm.matches && !down && now > pause) {
+acc += SPEED * dt;
+if (acc >= 1) { const d = Math.floor(acc); acc -= d; wrap.scrollLeft += d; }
+}
+const h = half();
+if (h > 0) { if (wrap.scrollLeft >= h) wrap.scrollLeft -= h; else if (wrap.scrollLeft <= 0 && (down || now < pause)) wrap.scrollLeft += h; }
+raf = requestAnimationFrame(loop);
+};
+const kick = () => { if (raf === null && vis) { last = 0; raf = requestAnimationFrame(loop); } };
+wrap.addEventListener('touchstart', () => hold(3500), { passive: true });
+wrap.addEventListener('touchmove', () => hold(3500), { passive: true });
+wrap.addEventListener('wheel', () => hold(3500), { passive: true });
+wrap.addEventListener('mouseenter', () => hold(1e9));
+wrap.addEventListener('mouseleave', () => { if (!down) hold(800); });
+wrap.addEventListener('focusin', () => hold(1e9));
+wrap.addEventListener('focusout', () => hold(1500));
+wrap.addEventListener('pointerdown', (e) => {
+if (e.pointerType !== 'mouse' || e.button !== 0) return;
+down = true; moved = false; sx = e.clientX; sl = wrap.scrollLeft;
+});
+window.addEventListener('pointermove', (e) => {
+if (!down) return;
+const dx = e.clientX - sx;
+if (!moved && Math.abs(dx) > 5) { moved = true; wrap.classList.add('drag'); }
+if (moved) wrap.scrollLeft = sl - dx;
+});
+const up = () => { if (!down) return; down = false; wrap.classList.remove('drag'); hold(1500); };
+window.addEventListener('pointerup', up);
+window.addEventListener('pointercancel', up);
+wrap.addEventListener('click', (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+if (window.IntersectionObserver) {
+this.jTickIo = new IntersectionObserver((es) => { vis = es[0].isIntersecting; if (vis) kick(); });
+this.jTickIo.observe(wrap);
+}
+/* começa no meio da cópia para dar para rolar para os dois lados */
+wrap.scrollLeft = 1;
+kick();
+this.jTickStop = () => { if (raf !== null) cancelAnimationFrame(raf); if (this.jTickIo) this.jTickIo.disconnect(); };
+}
 /* No celular o menu esconde ao rolar para baixo e volta ao rolar para cima, para não cobrir a jornada. */
 initNav() {
 const nav = document.querySelector('.nav');
@@ -1045,6 +1102,7 @@ if (this.jRefresh) this.jRefresh();
 }
 componentWillUnmount() {
 if (this.jTeardown) this.jTeardown();
+if (this.jTickStop) this.jTickStop();
 if (this.jClick) document.removeEventListener('click', this.jClick);
 if (this.jNavScroll) window.removeEventListener('scroll', this.jNavScroll, true);
 }
@@ -1221,6 +1279,8 @@ const STEP_P = [0.2, 0.44, 0.7, 1];
 const NSTEP = STEP_P.length;
 const VMAX = 0.24;
 const isMobile = () => window.innerWidth < 760;
+/* no celular vale a rolagem nativa do dedo: nada de travar ou arrastar a página, só a cena anima sozinha */
+const touchMode = () => window.innerWidth < 760 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
 let beats = null;
 let step = -1, pScene = 0, vel = 0, onScreen = true, raf = null, lastT = 0, frame = 0;
 let touching = false, locked = false, lockTimer = null, aligning = false, alignRaf = null, settleTimer = null;
@@ -1300,14 +1360,17 @@ return step;
 const goStep = (n) => {
 if (n === step) return;
 step = n;
-if (n >= 0) { startLock(); alignTo(n); }
+if (n >= 0 && !touchMode()) { startLock(); alignTo(n); }
 kick();
 };
 const settle = () => {
 settleTimer = null;
-if (rm.matches || touching || locked || aligning) return;
+if (rm.matches || locked || aligning) return;
+const tm = touchMode();
+if (touching && !tm) return;
 const w = wantStep();
 if (w !== step) { goStep(w); return; }
+if (tm) return;
 if (step >= 0) {
 const r = journey.getBoundingClientRect();
 const rg = journey.offsetHeight - stage.clientHeight;
@@ -1344,10 +1407,11 @@ const showStatic = () => { step = NSTEP - 1; pScene = STEP_P[NSTEP - 1]; draw(pS
 
 const onScroll = () => {
 if (rm.matches || locked || aligning) return;
+if (touchMode()) { settle(); return; }
 armSettle();
 };
 const onTouchStart = () => { touching = true; };
-const onTouchEnd = () => { touching = false; if (!rm.matches) armSettle(); };
+const onTouchEnd = () => { touching = false; if (!rm.matches && !touchMode()) armSettle(); };
 const onResize = () => { measure(); if (rm.matches) showStatic(); else draw(pScene, performance.now()); };
 const onRm = () => {
 measure();
