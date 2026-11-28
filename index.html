@@ -23,6 +23,12 @@ a{color:inherit}
 html,body{scroll-behavior:smooth}
 :root{color-scheme:dark}
 [id]{scroll-margin-top:76px}
+#servicos{scroll-margin-top:18px}
+#principios{scroll-margin-top:100px}
+#processo{scroll-margin-top:3px}
+#duvidas{scroll-margin-top:18px}
+#contato{scroll-margin-top:-19px}
+[id^="svc-"]{scroll-margin-top:96px}
 details>summary{cursor:pointer;list-style:none}
 details>summary::-webkit-details-marker{display:none}
 details[open] .faq-plus{transform:rotate(45deg)}
@@ -263,37 +269,37 @@ html,body{scroll-behavior:auto}
 <div class="dd-panel">
 <div class="dd-box">
 
-<a href="#servicos" class="dd-item">
+<a href="#svc-0" class="dd-item">
 <span class="dd-dot"></span>
 <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.0.title">Desenvolvimento de sites</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.0.short">Rápidos, claros e fáceis de atualizar</span></span></span>
 <span class="dd-arrow">→</span>
 </a>
 
-<a href="#servicos" class="dd-item">
+<a href="#svc-1" class="dd-item">
 <span class="dd-dot"></span>
 <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.1.title">Desenvolvimento de SaaS</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.1.short">Produtos de software prontos para escalar</span></span></span>
 <span class="dd-arrow">→</span>
 </a>
 
-<a href="#servicos" class="dd-item">
+<a href="#svc-2" class="dd-item">
 <span class="dd-dot"></span>
 <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.2.title">Consultoria em IA</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.2.short">Onde a IA gera resultado no seu negócio</span></span></span>
 <span class="dd-arrow">→</span>
 </a>
 
-<a href="#servicos" class="dd-item">
+<a href="#svc-3" class="dd-item">
 <span class="dd-dot"></span>
 <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.3.title">Agentes de IA e automação</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.3.short">Rotinas que passam a rodar sozinhas</span></span></span>
 <span class="dd-arrow">→</span>
 </a>
 
-<a href="#servicos" class="dd-item">
+<a href="#svc-4" class="dd-item">
 <span class="dd-dot"></span>
 <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.4.title">Transformação digital</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.4.short">Processos, pessoas e tecnologia alinhados</span></span></span>
 <span class="dd-arrow">→</span>
 </a>
 
-<a href="#servicos" class="dd-item">
+<a href="#svc-5" class="dd-item">
 <span class="dd-dot"></span>
 <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:600;font-size:15px;color:#F5F3EE"><span data-i="services.list.5.title">Software personalizado</span></span><span style="font-size:13px;color:#7C8199"><span data-i="services.list.5.short">Sistemas feitos para a sua operação</span></span></span>
 <span class="dd-arrow">→</span>
@@ -1351,6 +1357,7 @@ const wantStep = () => {
 const r = journey.getBoundingClientRect(), vh = stage.clientHeight, rg = journey.offsetHeight - vh;
 if (rg <= 0) return step;
 if (r.top > vh * 0.55) return -1;
+if (r.bottom < vh * 0.45) return NSTEP - 1;
 const s = clamp((-r.top / rg) * (NSTEP - 1), 0, NSTEP - 1);
 if (step < 0) return 0;
 if (s > step + 0.15 && step < NSTEP - 1) return step + 1;
@@ -1360,7 +1367,10 @@ return step;
 const goStep = (n) => {
 if (n === step) return;
 step = n;
-if (n >= 0 && !touchMode()) { startLock(); alignTo(n); }
+if (n >= 0 && !touchMode()) {
+const jr = journey.getBoundingClientRect(), vh = stage.clientHeight;
+if (jr.top <= vh * 0.55 && jr.bottom >= vh * 0.45) { startLock(); alignTo(n); }
+}
 kick();
 };
 const settle = () => {
